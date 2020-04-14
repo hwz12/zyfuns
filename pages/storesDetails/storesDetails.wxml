@@ -1,0 +1,87 @@
+<!--pages/storesDetails/storesDetails.wxml-->
+<movable-area style="height: 100%;width: 100%;background: red;">
+<view class='heard'>
+  <view class='nav bg-gray' style='height:{{navH}}px'>
+    <view class='nav-title'>
+    <view class='right-arrow' bindtap="goStores"></view>
+     <text>{{shops.name}}</text>
+    </view>
+  </view>
+</view>
+<view  class='goodsGroup' class='{{shoppingStatu == 1? "preventTouchMove" : ""}}'style='margin-top:{{navH}}px;background-color:#fff;' >
+  <view wx:for="{{goods}}" wx:key="item" >
+      <view class='group' data-groups="{{item.groups}}" bindtap='chooseList' >
+            <view class='groupName'>
+               <text>{{item.group}}</text>
+                <image class='listImg' src='{{item.image}}'></image>
+            </view>
+          <view wx:if="{{item.groups == groups}}"class="goods" wx:for-items="{{item.goods}}"wx:for-item="goods" wx:key="goods" bindtap='chooseSpecif' data-id='{{goods.id}}' data-specif='{{goods.specif}}' data-num='{{goods.num}}' data-spetype='{{goods.spetype}}' data-name='{{goods.name}}'data-price='{{goods.price}}' data-spetype='{{goods.spetype}}' data-numgroups="{{item.groups}}" data-numindex="{{index}}" data-statu='1'>
+            <view>
+              <image src='{{goods.image}}'></image>
+              <view class='goodsName'><text>{{goods.name}}</text></view>
+            </view>
+          </view>
+      </view>
+  </view>
+</view>
+<!-- 购买物品详情 -->
+<view class='specif' wx:if="{{statu == 1}}">
+  <view class='doChooseGoods'>
+    <view class='goodsImg'><image></image></view>
+    <view class='price'>{{total}}</view> 
+    <view class='chooseGoodsName'>{{name}}</view>
+  </view>
+  <view wx:if="{{spetype == 1}}" wx:for="{{specif}}" wx:for-item="j" wx:key="j" class='listName' wx:for-index="spe" wx:key="spe">
+       <view class='specifListName'>{{j.name}}</view>
+    <view wx:for="{{j.data}}" wx:for-item="z" wx:key="z" >
+        <view wx:if="{{spetype == 1}}"  bindtap='chooseType' class='specifList{{z.num == 1 ? 1 : 0}}' data-spegroup="{{spe}}" data-index="{{index}}">
+          <text>{{z.name}}</text>
+        </view>
+    </view>
+  </view>
+  <view class='payNum'>
+   数量
+    <view class='numChange'>
+       <view class='reduceNum' bindtap='reduceNum' data-num="{{num}}" data-Numgroup="{{numgroup}}" data-Numindex="{{numindex}}" data data-price='{{price}}' data-goods='{{name}}'>-</view>
+       <view class='num'>{{num}}</view>
+       <view class='addNum' bindtap='addNum' data-num="{{num}}" data-Numgroup="{{numgroup}}" data-Numindex="{{numindex}}" data-price='{{price}}' data-goods='{{name}}'>+</view>
+    </view>
+  </view>
+  <image class='drawerImg' src='/images/shop_details/fork.png' bindtap='closeSpecif' ></image>
+  <view class='btn' bindtap='addShopping'>加入购物车</view>
+</view>
+<!-- 遮罩层 -->
+<view class='mask'  wx:if='{{statu == 1}}' bindtap='closeSpecif'></view>
+<!-- 购物车部分 -->
+<movable-view direction="all"  class='set' wx:if='{{shoppingStatu == 0}}' x="{{x}}" y="{{y}}" bindchange="onChange" >
+ <view class='shoppingImg'  bindtap='shopping' >
+   <image src='/images/cart0.png'></image>
+ </view>
+  <text>{{payShoppingNum}}</text>
+</movable-view>
+<scroll-view class='shopping' wx:if='{{shoppingStatu == 1}}' scroll-y='true' >
+  <view class='shoppingCar'><image src='/images/cart0.png'></image></view>
+  <view class='payShoppingDetails' wx:for="{{shopping}}" wx:for-item="shopping" wx:key="shopping">
+     <text class='payName'>{{shopping.name}}</text>
+     <text class='paySpecif'>{{shopping.chooseSpecif}}</text>
+     <view class='shoppingCount'>
+        <view class='payTotal'>{{shopping.total}}</view>
+        <view class='shoppingReduceNum' bindtap='shoppingReduceNum' data-num = "{{shopping.num}}" data-index="{{index}}"data-total="{{shopping.total}}">-</view>
+        <view class='payOneNum'>{{shopping.num}}</view>
+        <view class='shoppingAddNum' bindtap='shoppingAddNum' data-num = "{{shopping.num}}" data-total="{{shopping.total}}"data-index="{{index}}">+</view>
+     </view>
+  </view>
+</scroll-view>
+</movable-area>
+<view class='goPay' wx:if='{{shoppingStatu == 1}}'>
+   <view class='payMent' bindtap='gopay'>去支付</view>
+   <view class='tptalize'>{{payShoppingNum}}件商品</view>
+   <view class='addPayMent'>合计:
+     <text>{{amountTo}}</text>
+   </view>
+</view>
+<!-- 遮罩层 -->
+<view class='mask'  wx:if='{{shoppingStatu == 1}}' bindtap='shopping'></view>
+
+
+

@@ -1,0 +1,46 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>订单评价</text>
+        </view>
+    </view>
+</view>
+<!-- <view class='info'>
+    <image src='https://data.zyfuns.com/image/shop/logo/{{info.shopiamge}}'></image>
+    <view class='goodsname'>{{info.goods}}{{info.num>1 ? '等' : ''}}{{info.num}}件商品</view>
+    <view class='date'>{{info.paytime}}</view>
+</view> -->
+<view style='margin-top:{{navH}}px'>
+  <view class='headline'>
+      <view class='line'></view>
+      <view>评分</view>
+      <view class='line'></view>
+  </view>
+  <view class="stars-container">
+    <view style="float:left;font-size:33rpx;margin-right:20rpx;">菜品评分</view>
+      <view class="stars">
+          <block wx:for="{{score}}" wx:for-item="item" wx:for-index="i" wx:key="item">
+              <image wx:if="{{item==1}}" src="/images/shop_details/stars-full.png" data-num='{{i}}' bindtap="onscore"></image>
+              <image wx:else src="/images/shop_details/stars-null.png" data-num='{{i}}' bindtap="onscore"></image>
+          </block>
+      </view>
+  </view>
+  <view class="stars-containers">
+    <view style="float:left;font-size:33rpx;margin-right:20rpx;">物流评分</view>
+      <view class="stars">
+          <block wx:for="{{scores}}" wx:for-item="item" wx:for-index="i" wx:key="item">
+              <image wx:if="{{item==1}}" src="/images/shop_details/stars-full.png" data-logistnum='{{i}}' bindtap="onscores"></image>
+              <image wx:else src="/images/shop_details/stars-null.png" data-logistnum='{{i}}' bindtap="onscores"></image>
+          </block>
+      </view>
+  </view>
+</view>
+<view style="background-color:#fff;padding:20rpx;margin:20rpx;height:300rpx;">
+  <textarea placeholder="亲，您对这个商品满意吗？您的评价会帮助我们改善我们的服务噢~" maxlength="100" style="height:78px;" bindinput="settext" />
+  <view class="goodsimg" bindtap="upload">
+    <image src='/images/cam.png' style="height:70rpx;width:70rpx;" wx:if="{{filePath == ''}}"></image>
+    <image class="goodsalbum" bindtap="preview" data-id="{{filePath}}" wx:if="{{filePath != ''}}" src="{{filePath}}"></image>
+  </view>
+</view>
+<view class='btn' hover-class='btn_hover' bindtap="onok">提交评价</view>

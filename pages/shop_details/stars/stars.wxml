@@ -1,0 +1,70 @@
+<template name="stars1">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars2">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars3">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars4">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars5">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars6">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars7">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars8">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-null.png"></image>
+</template>
+<template name="stars9">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-half.png"></image>
+</template>
+<template name="stars10">
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+    <image src="/images/shop_details/stars-full.png"></image>
+</template>

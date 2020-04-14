@@ -1,0 +1,186 @@
+page{
+    background-color: #F2F2F2;
+}
+.heard{
+  display:flex;
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  z-index: 10;
+}
+.nav{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.nav-title{
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  font-family:PingFang-SC-Medium;
+  font-size:37rpx;
+  letter-spacing:2px;
+}
+
+.nav-title text{
+  font-size: 36rpx;
+}
+
+.nav .back{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 15px;
+}
+.bg-white{
+  background-color: #fff;
+}
+.bg-gray{
+  background-color: #f2f2f2;
+}
+.overflow{
+  overflow: auto;
+}
+.hidden{
+  overflow: hidden;
+}
+/* 返回首页箭头 */
+.right-arrow {
+position:absolute;
+padding:0 15px 0;
+line-height:85rpx;
+
+}
+.right-arrow::after {
+display: inline-block;
+content: " ";
+height: 20rpx;
+width: 20rpx;
+border-width: 3rpx 3rpx 0 0;
+border-color: #000;
+border-style: solid;
+transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
+}
+.info{
+    height: 200rpx;
+}
+
+.info image{
+    float: left;
+    height: 140rpx;
+    width: 140rpx;
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    margin-right: 20rpx;
+    background-color: #F2F2F2;
+}
+
+.goodsname{
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 30rpx;
+}
+
+.date{
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: right;
+    font-size: 24rpx;
+    padding-right: 20rpx;
+}
+
+.headline{
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #D2251C;
+    font-size: 40rpx;
+}
+
+.line{
+    flex: 1;
+    height: 50rpx;
+    border-bottom: 1px dotted #D2251C;
+    margin: 0 30rpx;
+}
+
+.stars-container{
+    height: 60rpx;
+    background-color:#fff;
+    line-height:60rpx;
+    padding:20rpx;
+    margin:20rpx 20rpx 0;
+
+}
+
+.stars-containers{
+    height: 60rpx;
+    background-color:#fff;
+    line-height:60rpx;
+    padding:20rpx;
+    margin:0 20rpx 20rpx;
+
+}
+
+.stars{
+    display: inline-block;
+    height: 50rpx;
+    width: 300rpx;
+}
+
+.stars image{
+    height: 50rpx;
+    width: 50rpx;
+}
+
+textarea{
+    width: 100%;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    position: relative;
+}
+.goodsimg{
+  width:120rpx;
+  height:120rpx;
+  border:1px solid #CCCCCC;
+  border-radius:10rpx;
+  float:left;
+  margin-right:20rpx;
+  font-size:60rpx;
+  text-align:center;
+  line-height:140rpx;
+  margin-top: 10rpx;
+
+}
+
+.goodsalbum{
+  height: 120rpx;
+  width: 120rpx;
+}
+.btn{
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    background-color: #D2251C;
+    color: #FFFFFF;
+    position: fixed;
+    left: 30rpx;
+    right: 30rpx;
+    font-size: 30rpx;
+    border-radius:20rpx;
+}
+
+.btn_hover{
+    opacity: 0.9;
+}

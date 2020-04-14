@@ -1,0 +1,351 @@
+<import src="stars/stars.wxml"/>
+<view class="{{proInfoWindow?'indexFixed':''}}"class="{{carStatus?'preventTouchMove':''}}">
+  <view class='goHome' hidden="{{pack == 1}}" >
+      <view class='right-arrow' bindtap="goHome"></view>
+  </view>
+  <view class='heard' hidden="{{pack == 0}}" >
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+      <view class='nav-title'>
+      <view class='right-arrow' bindtap="goHome"></view>
+      <text>{{shop.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="background-color:  #ffffff;">
+      <view wx:if="{{pack==0}}">
+      <!-- style='background: url({{shop.image}}) no-repeat 50% 50%;' -->
+        <view style=' no-repeat 50% 50%;' class='background_image'></view>
+        <view data-index='1'>
+          <image src="/images/shop_details/phone.png" class="shopphone" bindtap='shopphone' data-shopphone ="{{shop.shopphone}}"></image>
+          <view class='header' bindtap="intro" data-index="1">
+              <image src='{{shop.logo}}' class='user_img'></image> 
+              <view class='user'>
+                  <view class='user_info'>
+                      <!-- <view class='user_name'> -->
+                          <text class='usertext'>{{shop.name}}</text>
+                      <!-- </view> -->
+                      <view class="stars">
+                          <template wx:if="{{shop.score<=20}}" is="stars1"/>
+                          <template wx:elif="{{shop.score<=30}}" is="stars2"/>
+                          <template wx:elif="{{shop.score<=40}}" is="stars3"/>
+                          <template wx:elif="{{shop.score<=50}}" is="stars4"/>
+                          <template wx:elif="{{shop.score<=60}}" is="stars5"/>
+                          <template wx:elif="{{shop.score<=70}}" is="stars6"/>
+                          <template wx:elif="{{shop.score<=80}}" is="stars7"/>
+                          <template wx:elif="{{shop.score<=90}}" is="stars8"/>
+                          <template wx:elif="{{shop.score>90}}" is="stars9"/>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <view class='inform'>
+              <image src='/images/inform.png'></image>
+              <swiper class='swipei' autoplay='true' vertical='true' circular='true' class="infswipei">
+                  <block wx:for="{{shop.affiche}}" wx:for-item="item" wx:key="item">
+                      <swiper-item  class="infitem">
+                          <text>{{item}}</text>
+                      </swiper-item>
+                  </block>
+              </swiper>
+          </view>
+        </view>
+      </view>
+      <view class="swiper-tab" wx:if="{{list||pack==1}}" style="margin-top:{{navH}}px">
+          <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">{{getdata.data_list}}</view>
+          <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">评价</view>
+      </view>
+      <view class="swiper-tab" wx:if="{{list||pack==0}}" style="margin-top:0">
+          <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">{{getdata.data_list}}</view>
+          <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">评价</view>
+      </view>
+  </view>
+  <view hidden="{{list!=1}}" class="intro" style="height:{{height}}px">
+        <view class="intro_menu">
+          <text>费用说明</text>
+          <view class="intormoney" hidden='{{getdata.data_code == 5}}'>
+            <image src='/images/shop_details/packing.png' style="margin: 33rpx 5rpx 0 0;"></image>
+            <view>包装费￥{{shopinfo.packprice}}元</view>
+            <image src='/images/shop_details/lunch.png'></image>
+            <view>餐盒费￥{{shopinfo.boxcharge}}元</view>
+            <image src='/images/shop_details/delivery.png'></image>
+            <view>配送费￥{{shopinfo.sendprice}}元</view>
+          </view>
+        </view>
+        <view class="intro_mid">
+          <text>优惠</text>
+          <view class="intormoney">
+            <image src='/images/shop_details/discount.png' style="margin: 33rpx 5rpx 0 0;"></image>
+            <view>{{shopinfo.discount}}</view>
+          </view>
+        </view>
+        <view class="intro_mid">
+          <text>店铺信息</text>
+          <view class="intorinform" style="height:50rpx; line-height:50rpx;margin: 33rpx 5rpx 0 0;">
+            <image src='/images/shop_details/address.png' style="margin: 8rpx 0 0 0;"></image>
+            <view>{{shopinfo.address}}</view>
+            <image src='/images/shop_details/phone.png'></image>
+            <view bindtap='shopphone' data-shopphone ="{{shop.shopphone}}">商家电话：{{shopinfo.shopphone}} </view>
+            <image src='/images/shop_details/normal.png'></image>
+            <view>商家正常运营</view>
+            <!-- <image src='/images/shop_details/abnormal.png'></image>
+            <view>商家客服电话无法接通</view> -->
+          </view>
+          <view class="intorinform">
+            
+          </view>
+        </view>
+  </view>
+  <view>
+      <view wx:if="{{bagtype==1}}">
+        <view wx:if="{{put == 0}}" hidden='{{currentTab==1}}'>
+          <view class='bottom_bar{{state}}' hidden="{{list==1}}">
+              <view class="bottom_left" bindtap='carframeopen' data-statu="1">
+                  <view id="shopping_cart" class="shopping_cart{{state==0 ? '0' : '1'}}">
+                      <image src="/images/cart{{state==0 ? '0' : '1'}}.png" id="cart_img" class="cart_img"></image>
+                      <view class="number" hidden='{{num==0}}'>{{num}}</view>
+                  </view>
+              </view>
+              <view class="price">￥{{total}}</view>
+              <view class="bottomconent" wx:if="{{carstate != undefine}}">共{{carstatelength}}个袋子 已选{{num}}个商品</view>
+              <view id="bottom_right" class="bottom_right{{state}}" data-state="{{state}}" bindtap="establish">{{mincharge}}</view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{bagtype == 2}}">
+        <view wx:if="{{put == 0}}" hidden='{{currentTab==1}}'>
+          <view class='bottom_bar{{state}}' hidden="{{list==1}}">
+            <view class="bottomhead" bindtap='carframeopen' data-statu="1">
+              <text class="bottomtext">{{carstate+1}}号袋子 已选{{carbagnum}}个商品</text>
+              <text class="bottomprice">￥{{carbagprice}}</text>
+              <view wx:for="{{carbag}}" wx:key="item"> 
+                <view style="padding: 0 10px ;wxcs_style_padding: 0 20rpx;">
+                <image src="https://data.zyfuns.com/image/goods/1000000012/{{item.image}}" class="bottomimage">
+                <view class="bottomnumber" >{{item.num}}</view>
+                </image>
+                
+                </view>
+              </view>
+            </view>
+            <view class="bottomright" wx:if="{{carbagnum < shop.miniop}}">{{shop.miniop}}个商品起送</view>
+            <view class="bottomright1" wx:if="{{carbagnum >= shop.miniop}}">创建订单</view>
+           
+              <!-- <view class="bottom_left" bindtap='carframeopen' data-statu="1">
+                  <view id="shopping_cart" class="shopping_cart{{state==0 ? '0' : '1'}}">
+                      <image src="/images/cart{{state==0 ? '0' : '1'}}.png" id="cart_img" class="cart_img"></image>
+                      <view class="number" hidden='{{num==0}}'>{{num}}</view>
+                  </view>
+              </view>
+              <view class="price">￥<text>{{total}}</text></view>
+              <view id="bottom_right" class="bottom_right{{state}}" data-state="{{state}}" bindtap="establish">{{mincharge}}</view> -->
+          </view>
+        </view>
+      </view>
+      <swiper current="{{currentTab}}"  duration="300"  bindchange="switchTab" style="height:{{winheight}}px">
+        <swiper-item>
+            <view class='overall' catchtouchmove="doNothing">
+              <view class="menu{{pack==1 ? '1' : '0'}}">
+                  <block wx:for="{{goods}}" wx:for-item="item" wx:key="item">
+                  <view wx:if="{{item.optional == 1}}" bindtap='cate' data-pend="{{item.groups}}">
+                      <view class="submenu {{groupTab==index ? 'act_submenu' : ''}}" data-optional="{{item.optional}}" style="box-shadow:{{item.optional==2 ?'5rpx 5rpx 1px #FFCC66' : '5rpx 5rpx 1px #c5c3c3'}}" data-current="{{index}}" bindtap="ongroup">
+                          <text>{{item.group}}</text>
+                      </view>
+                    </view>
+                  </block>
+              </view>
+              <view class="menu{{pack==1 ? '1' : '0'}}" style="margin-top:{{goodslength}}rpx;">
+                  <block wx:for="{{goods}}" wx:for-item="item" wx:key="item">
+                    <view wx:if="{{item.optional == 2}}" bindtap='category'>
+                      <view class="submenu {{groupTab==index ? 'act_submenu' : ''}}" data-optional="{{item.optional}}" style="box-shadow:{{item.optional==2 ?'5rpx 5rpx 1px #FFCC66' : '5rpx 5rpx 1px #c5c3c3'}}" data-current="{{index}}" bindtap="ongroup">
+                          <text>{{item.group}}</text>
+                      </view>
+                    </view>
+                  </block>
+              </view>
+        
+              <scroll-view scroll-y='true'   scroll-with-animation='true' scroll-into-view='{{toView}}' class="goods{{pack==1 ? '1' : '0'}}" style="top:1px;" data-goods="{{goods}}" bindscroll="topH">
+                  <view wx:for="{{goods}}" wx:for-item="item" wx:for-index="x" wx:key="item" wx:key="x">
+                      <view  wx:if="{{item.optional == 1}}" hidden="{{category == 1}}" id="group{{x}}" class='tgroup'  bind:touchmove="slide" bind:touchstart="slide" bind:touchend="slide" bind:touchcancel="slide"  data-pend="{{item.groups}}" bindtap='slide'>
+                          <view class="goods_group">{{item.group}}</view>
+                          <view wx:for="{{item.goods}}" wx:for-item="i" wx:key="i">
+                              <view class="commodity">
+                                  <image src='{{i.image}}' class='goods_img'></image>
+                                  <text class='goods_name'>{{i.name}}</text>
+                                  <view class='goods_grade'>
+                                      <template wx:if="{{i.score<=20}}" is="stars1"/>
+                                      <template wx:elif="{{i.score<=30}}" is="stars2"/>
+                                      <template wx:elif="{{i.score<=40}}" is="stars3"/>
+                                      <template wx:elif="{{i.score<=50}}" is="stars4"/>
+                                      <template wx:elif="{{i.score<=60}}" is="stars5"/>
+                                      <template wx:elif="{{i.score<=70}}" is="stars6"/>
+                                      <template wx:elif="{{i.score<=80}}" is="stars7"/>
+                                      <template wx:elif="{{i.score<=90}}" is="stars8"/>
+                                      <template wx:elif="{{i.score>90}}" is="stars9"/>
+                                  </view>
+                                  <text class='goods_money'>￥{{i.price}}</text>
+                                  <!-- 规格选择按钮 -->
+                                  <view  class='food_btn'  hidden="{{i.spetype != 1}}" bindtap='powerDrawer' data-optional="{{item.optional}}" data-statu="open" data-id="{{i.id}}" data-rulegroup="{{x}}" data-ruleindex="{{index}}">
+                                    <text class='rule' >规格</text>
+                                    <view class="rulenumber" hidden="{{i.num == 0}}">{{i.num}}</view>
+                                  </view>
+                                  
+                                  <!-- 商品选择按钮 -->
+                                  <view class='food_btn' hidden="{{i.spetype == 1}}" data-group="{{x}}" data-index="{{index}}" bindtap="bindPlus" data-optional="{{item.optional}}">
+                                      <image class='plus'  src='/images/plus.png' ></image>
+                                      <text hidden='{{i.num == 0}}'>{{i.num}}</text>
+                                      <!-- <image class='sub' data-group="{{x}}" data-index="{{index}}" src='/images/sub.png' hidden='{{i.num<1}}' bindtap="bindMinus" data-optional="{{item.optional}}"></image> -->
+                                  </view>
+                              </view>
+                          </view>
+                      </view>
+                      <view  wx:if="{{item.optional == 2}}" id="group{{x}}" class='tgroup' hidden="{{category==0}}" bind:touchmove="slide" bind:touchstart="slide" bind:touchend="slide" bind:touchcancel="slide"  data-pend="{{item.groups}}" bindtap='slide'>
+                          <view class="goods_group">{{item.group}}</view>
+                          <view wx:for="{{item.goods}}" wx:for-item="i" wx:key="i">
+                              <view class="commodity">
+                                  <image src='{{i.image}}' class='goods_img'></image>
+                                  <text class='goods_name'>{{i.name}}</text>
+                                  <view class='goods_grade'>
+                                      <template wx:if="{{i.score<=20}}" is="stars1"/>
+                                      <template wx:elif="{{i.score<=30}}" is="stars2"/>
+                                      <template wx:elif="{{i.score<=40}}" is="stars3"/>
+                                      <template wx:elif="{{i.score<=50}}" is="stars4"/>
+                                      <template wx:elif="{{i.score<=60}}" is="stars5"/>
+                                      <template wx:elif="{{i.score<=70}}" is="stars6"/>
+                                      <template wx:elif="{{i.score<=80}}" is="stars7"/>
+                                      <template wx:elif="{{i.score<=90}}" is="stars8"/>
+                                      <template wx:elif="{{i.score>90}}" is="stars9"/>
+                                  </view>
+                                  
+                                  <!-- 商品选择按钮 -->
+                                  <view class='food_btn' hidden="{{i.spetype == 1}}">
+                                      <image class='plus' data-group="{{x}}" data-index="{{index}}" src='/images/plus.png' bindtap="bindPlus" data-optional="{{item.optional}}"></image>
+                                      <text hidden='{{i.num == 0}}'>{{i.num}}</text>
+                                      <!-- <image class='sub' data-group="{{x}}" data-index="{{index}}" src='/images/sub.png' hidden='{{i.num<1}}' bindtap="selfMinus" data-optional="{{item.optional}}"></image> -->
+                                  </view>
+                              </view>
+                          </view>
+                      </view>
+                  </view>
+                  <view style="height:80%;font-size:20rpx;text-align:center;line-height:250px;color:#CCCCCC;">无更多商品~</view>
+              </scroll-view>
+            </view>
+        </swiper-item>
+        <swiper-item  class="evaluate">
+          <view class="head">
+            <view class="headscore">{{comment.score}}<view class="headshop">商家评分</view></view>
+            <view class="headright">
+                <view class="headflavor">
+                  <text>口味</text>{{comment.flavor}}
+                  <view class="headstars">
+                      <template wx:if="{{comment.flavor<=0.5}}" is="stars1"/>
+                      <template wx:elif="{{comment.flavor<=1}}" is="stars2"/>
+                      <template wx:elif="{{comment.flavor<=1.5}}" is="stars3"/>
+                      <template wx:elif="{{comment.flavor<=2}}" is="stars4"/>
+                      <template wx:elif="{{comment.flavor<=2.5}}" is="stars5"/>
+                      <template wx:elif="{{comment.flavor<=3}}" is="stars6"/>
+                      <template wx:elif="{{comment.flavor<=3.5}}" is="stars7"/>
+                      <template wx:elif="{{comment.flavor<=4}}" is="stars8"/>
+                      <template wx:elif="{{comment.flavor<=4.5}}" is="stars9"/>
+                      <template wx:elif="{{comment.flavor>4.5}}" is="stars10"/>
+                  </view>
+                </view>
+                <view class="headservice">
+                  <text>服务</text>{{comment.service}}
+                  <view class="headstars">
+                      <template wx:if="{{comment.service<=0.5}}" is="stars1"/>
+                      <template wx:elif="{{comment.service<=1}}" is="stars2"/>
+                      <template wx:elif="{{comment.service<=1.5}}" is="stars3"/>
+                      <template wx:elif="{{comment.service<=2}}" is="stars4"/>
+                      <template wx:elif="{{comment.service<=2.5}}" is="stars5"/>
+                      <template wx:elif="{{comment.service<=3}}" is="stars6"/>
+                      <template wx:elif="{{comment.service<=3.5}}" is="stars7"/>
+                      <template wx:elif="{{comment.service<=4}}" is="stars8"/>
+                      <template wx:elif="{{comment.service<=4.5}}" is="stars9"/>
+                      <template wx:elif="{{comment.service>4.5}}" is="stars10"/>
+                  </view>
+                </view>
+            </view>
+          </view>
+          <view class="comment " wx:for="{{comment}}" wx:for-item="item" wx:key="item">
+            <view class="comheadimg"><image src="{{item.headimg}}" class="headimg"></image></view>
+            <view class="commenu">
+              <view class="comname">{{item.name}}</view>
+              <view class="comstars">
+                        <template wx:if="{{item.comscore<=10}}" is="stars1"/>
+                        <template wx:elif="{{item.comscore<=20}}" is="stars2"/>
+                        <template wx:elif="{{item.comscore<=30}}" is="stars3"/>
+                        <template wx:elif="{{item.comscore<=40}}" is="stars4"/>
+                        <template wx:elif="{{item.comscore<=50}}" is="stars5"/>
+                        <template wx:elif="{{item.comscore<=60}}" is="stars6"/>
+                        <template wx:elif="{{item.comscore<=70}}" is="stars7"/>
+                        <template wx:elif="{{item.comscore<=80}}" is="stars8"/>
+                        <template wx:elif="{{item.comscore<=90}}" is="stars9"/>
+                        <template wx:elif="{{item.comscore>90}}" is="stars10"/>
+              </view>
+            </view>
+            <view class="comtime">{{item.time}}</view>
+            <view class="conright">
+              <view class="comcontent">{{item.content}}</view>
+              <image src="{{item.image}}" class="comimage" wx:if='{{item.image != ""}}'></image>
+            </view>
+          </view>
+          <!-- <text style="height:100rpx;font-size:20rpx;text-align:center;line-height:100rpx;color:#CCCCCC;">无更多评论~</text> -->
+          <view style=" height:100rpx;font-size:20rpx;text-align:center;line-height:100rpx;color:#CCCCCC;"><text style="margin-right:50rpx;font-size:20rpx;">无更多评价~</text></view>
+        </swiper-item>
+      </swiper>
+      
+  </view>
+
+  <!--  规格遮罩层  -->
+  <view wx:if="{{showModalStatus}}">
+      <view class="drawer_screen"></view>
+      <view animation="{{animationData}}" class="drawer">
+        <image src='/images/shop_details/fork.png' class="drawer_img" bindtap="powercolse" data-statu="close" ></image>
+        <view class="drawe_menu">
+            <view class="drawer_inf">
+              <image src='{{goods_image}}'></image>
+              <view class="drawer_title">{{goods_name}}</view>
+              <!-- <view class="drawer_price">￥{{goods_price}}</view>   -->
+              <view class="drawer_price" hiddin="">￥{{addprice}}</view>
+            </view>
+            <view wx:for="{{specif}}" wx:for-item="j" wx:key="j" wx:for-index="spe" wx:key="spe">
+              <text class="drawe_text">{{j.name}}:</text>
+                <view class="drawer_name" wx:for="{{j.data}}" wx:for-item="z" wx:key="z">
+                  <view bindtap="toChooseType" class="item{{z.num == 1 ? '1' : '0'}}" data-spegroup="{{spe}}" data-index="{{index}}">{{z.name}}</view>
+                </view>
+              </view> 
+            </view>
+            <view class="drawer_car" bindtap="drawer_car" data-statu="close" >加入购物车</view>
+        </view>
+  </view>
+
+  <!-- 购物车弹出 -->
+  <view wx:if="{{carStatus}}" hidden="{{num == 0}}">
+      <view class="car_screen" bindtap="carframeclose" data-statu="2"></view>
+      <scroll-view animation="{{animationData}}" class="car" scroll-y="true">
+        <view class="carhead">
+          <image src='/images/shop_details/fork.png' class="car_img" bindtap="carframeclose" data-statu="2" ></image>
+          <view wx:for="{{shopcar}}"  wx:key="item" wx:for-index="bag" wx:key="bag">
+            <view  class="{{carstate == bag? 'bag1':'bag'}}" data-index="{{bag}}" bindtap='bagcontent' >
+              <view class="bagclass">
+                <view class="bagnum">{{bag+1}}号袋子
+                  <view class="bagword" hidden='{{item.type == 1}}'>任</view>
+                  <view class="bagword" hidden='{{item.type == 2}}'>自</view>
+                </view>
+              </view> 
+              <view wx:for="{{item.data}}" wx:for-item="x" wx:key="x" class="baghead">
+                <view class="bagname">{{x.name}}</view>
+                <text class="bagspecif" wx:if="{{x.specifcar != null}}">{{x.specifcar}}</text>
+                <view class="bagmenu">
+                  <text class="bagmoney" wx:if="{{item.type == 1}}">{{x.addprice}}</text>
+                  <view class='shoppingReduceNum' bindtap='shoppingReduceNum' data-num = "{{x.num}}" data-goodscar="{{item}}" data-bagindex="{{bag}}" data-goodsid="{{x.id}}" data-index="{{index}}" >-</view>
+                    <text class='payOneNum'>{{x.num}}</text>
+                  <view class='shoppingAddNum' bindtap='shoppingaddNum' data-goodscar="{{item}}" data-addprice="{{x.addprice}}" data-num = "{{x.num}}" data-bagindex="{{bag}}" data-goodsid="{{x.id}}"data-bagoptionalnum="{{item.optionalnum}}" data-index="{{index}}">+</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="addbag" bindtap="addbag"><text>添加袋子</text></view>
+        </view>
+      </scroll-view>
+  </view>
+</view>

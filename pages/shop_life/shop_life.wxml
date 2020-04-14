@@ -1,0 +1,94 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">综合排序</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">人均消费</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">人气销量</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">最新推荐</view>
+</view>
+<view style='height:65rpx;'></view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}rpx" bindchange="bindChange">
+    <swiper-item>
+        <block wx:for="{{posts_key}}" wx:for-item="item" wx:key="item">
+            <view class='shop' hover-class='shop-hover' data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}" bindtap="bindViewTap">
+                <image src='https://data.zyfuns.com/image/shop/logo/{{item.shop_image}}' class='goods_img'></image>
+                <text class='shop_name'>{{item.shop_name}}</text>
+                <view class='shop_info'>
+                    <image src='/images/stars-full.png'></image>
+                    <text>{{item.shop_score}}</text>
+                    <text class='ave'>起送价{{item.shop_mincharge}}元</text>
+                </view>
+                <view class='shop_label'>
+                    <text>生</text>
+                    <text>活</text>
+                    <text>超</text>
+                    <text>市</text>
+                </view>
+                <text wx:if="{{item.shop_state==1}}" class='close'>CLOSE</text>
+                <text wx:if="{{item.shop_state==2}}" class='open'>OPEN</text>
+            </view>
+        </block>
+    </swiper-item>
+    <swiper-item>
+        <block wx:for="{{posts_key1}}" wx:for-item="item" wx:key="item">
+            <view class='shop' hover-class='shop-hover' data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}" bindtap="bindViewTap">
+                <image src='https://data.zyfuns.com/image/shop/logo/{{item.shop_image}}' class='goods_img'></image>
+                <text class='shop_name'>{{item.shop_name}}</text>
+                <view class='shop_info'>
+                    <image src='/images/star.png'></image>
+                    <text>{{item.shop_score}}</text>
+                    <text class='ave'>起送价{{item.shop_mincharge}}元</text>
+                </view>
+                <view class='shop_label'>
+                    <text>生</text>
+                    <text>活</text>
+                    <text>超</text>
+                    <text>市</text>
+                </view>
+                <text wx:if="{{item.shop_state==1}}" class='close'>CLOSE</text>
+                <text wx:if="{{item.shop_state==2}}" class='open'>OPEN</text>
+            </view>
+        </block>
+    </swiper-item>
+    <swiper-item>
+        <block wx:for="{{posts_key2}}" wx:for-item="item" wx:key="item">
+            <view class='shop' hover-class='shop-hover' data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}" bindtap="bindViewTap">
+                <image src='https://data.zyfuns.com/image/shop/logo/{{item.shop_image}}' class='goods_img'></image>
+                <text class='shop_name'>{{item.shop_name}}</text>
+                <view class='shop_info'>
+                    <image src='/images/star.png'></image>
+                    <text>{{item.shop_score}}</text>
+                    <text class='ave'>起送价{{item.shop_mincharge}}元</text>
+                </view>
+                <view class='shop_label'>
+                    <text>生</text>
+                    <text>活</text>
+                    <text>超</text>
+                    <text>市</text>
+                </view>
+                <text wx:if="{{item.shop_state==1}}" class='close'>CLOSE</text>
+                <text wx:if="{{item.shop_state==2}}" class='open'>OPEN</text>
+            </view>
+        </block>
+    </swiper-item>
+     <swiper-item>
+        <block wx:for="{{posts_key3}}" wx:for-item="item" wx:key="item">
+            <view class='shop' hover-class='shop-hover' data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}" bindtap="bindViewTap">
+                <image src='https://data.zyfuns.com/image/shop/logo/{{item.shop_image}}' class='goods_img'></image>
+                <text class='shop_name'>{{item.shop_name}}</text>
+                <view class='shop_info'>
+                    <image src='/images/star.png'></image>
+                    <text>{{item.shop_score}}</text>
+                    <text class='ave'>起送价{{item.shop_mincharge}}元</text>
+                </view>
+                <view class='shop_label'>
+                    <text>生</text>
+                    <text>活</text>
+                    <text>超</text>
+                    <text>市</text>
+                </view>
+                <text wx:if="{{item.shop_state==1}}" class='close'>CLOSE</text>
+                <text wx:if="{{item.shop_state==2}}" class='open'>OPEN</text>
+            </view>
+        </block>
+    </swiper-item>
+</swiper>

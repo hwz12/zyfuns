@@ -1,0 +1,54 @@
+.searchbar-result{
+ margin-top: 0;
+ font-size: 14px;
+}
+  
+/* 搜索列表名称 */
+.list_name{
+ position: relative;
+ width: 100%;
+ height: 90rpx;
+ line-height: 90rpx;
+ border-bottom: 1rpx solid #ddd;
+}
+/* 列表名称 */
+.lab_name{
+ position: absolute;
+ left: 30rpx;
+}
+
+
+.goodsimg{
+  width:120rpx;
+  height:120rpx;
+  border:1px solid #CCCCCC;
+  border-radius:10rpx;
+  float:left;
+  margin-right:20rpx;
+  font-size:60rpx;
+  text-align:center;
+  line-height:140rpx;
+  margin-top: 10rpx;
+
+}
+
+.goodsalbum{
+  height: 120rpx;
+  width: 120rpx;
+}
+.btn{
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    background-color: #D2251C;
+    color: #FFFFFF;
+    position: fixed;
+    left: 30rpx;
+    right: 30rpx;
+    font-size: 30rpx;
+    border-radius:20rpx;
+}
+
+.btn_hover{
+    opacity: 0.9;
+}

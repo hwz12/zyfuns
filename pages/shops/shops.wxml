@@ -1,0 +1,153 @@
+<import src="../shop_details/stars/stars.wxml" />
+<view class='heard'>
+  <view class='nav bg-white' style='height:{{navH}}px'>
+    <view class='nav-title'>
+        <!-- <icon type="search" size='12' color='#2D2C31' class='search_icon'/>
+        <input style='position: relative;top: 22rpx;'  class="check" placeholder="点击搜索商品或商家"></input> -->
+        <view class="page">
+          <view class="page__bd">
+            <view class="weui-search-bar" style="background-color:#fff;height:44px">
+              <view class="weui-search-bar__form" style="border:1px solid #549688;border-radius:50px">
+                <view class="weui-search-bar__box">
+                  <icon class="weui-icon-search_in-box" type="search" size="14" style="top:0;margin-top:.64em;"></icon>
+                  <input type="text" class="weui-search-bar__input" placeholder="{{inputconnent}}" maxlength='10'  focus="{{inputShowed}}" bindinput="inputTyping" />
+                  <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                    <icon type="clear" size="14" ></icon>
+                  </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap='searchinfo' data-searchinfo="{{inputconnent}}" style="border-radius:50px;background">
+                  <icon class="weui-icon-search" type="search" size="14" ></icon>
+                  <view class="weui-search-bar__text"  >{{inputconnent}}</view>
+                </label>
+              </view>
+              <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+            </view>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
+<!-- 搜索列表 -->
+<view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" style="margin-top:{{navH+10}}px">
+  <!-- 搜索列表 -->
+  <view class="weui-cell__bd" wx:for="{{list}}" wx:key="key">
+    <!-- 列表名称 -->
+    <view class='list_name' data-index='{{index}}' data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}" data-name='{{item.shop_name}}' bindtap='btn_name'>
+      <!-- 昵称 -->
+      <label class='lab_name'>{{item.shop_name}}</label>
+    </view>
+  </view>
+</view>
+<view wx:if="{{inputVal.length > 0}}" class="play" hidden='{{data.data_shop == 5}}'>推荐商店</view>
+<view wx:if="{{inputVal.length == ''}}" style="margin-top:{{navH+10}}px" class="play" hidden='{{data.data_shop == 5}}'>推荐商店</view>
+<view class="push" wx:for="{{shops}}" wx:for-item="item" wx:key="item" hidden='{{data.data_shop == 5}}'>
+  <view  class="pushorder" data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}" bindtap="bindViewTap">
+    <image src='{{item.shop_logo}}' class="pushimg"></image>
+    <view class="pushname" data-state="{{item.shop_state}}" bindtap="bindViewTap">{{item.shop_name}}</view>
+  </view>
+</view>
+<view style='height:200rpx;'></view>
+<!-- <view class="select"> -->
+<view class="play" hidden='{{data.data_goods == 5}}'>推荐商品</view>
+  <view class="selectmid" hidden='{{data.data_goods== 5}}'>
+    <view class="selectframe" bindtap='bindViewTap'  data-state="{{goods[0].shop_state}}"  data-shopid="{{goods[0].shop_id}}" data-index="0">
+      <image src='{{goods[0].goods[0].image}}' class='selectimg'></image>
+      <view class="selecttext">
+      <view class="selectname">{{goods[0].goods[0].name}}</view>
+      </view>
+      <view class="selectmoney">￥{{goods[0].goods[0].price}}</view>
+      <view class="selectshop">{{goods[0].shop_name}}</view>
+    </view>
+    <view class="selectframe" bindtap='bindViewTap' data-state="{{goods[0].shop_state}}"  data-shopid="{{goods[0].shop_id}}" data-index="1">
+      <image src='{{goods[1].goods[1].image}}' class='selectimg'></image>
+      <view class="selecttext">
+      <view class="selectname">{{goods[1].goods[1].name}}</view>
+      </view>
+      <view class="selectmoney">￥{{goods[1].goods[1].price}}</view>
+      <view class="selectshop">{{goods[1].shop_name}}</view>
+    </view>
+    <view class="selectframe" bindtap='bindViewTap' data-state="{{goods[0].shop_state}}"  data-shopid="{{goods[0].shop_id}}" data-index="2">
+      <image src='{{goods[2].goods[2].image}}' class='selectimg'></image>
+      <view class="selecttext">
+      <view class="selectname">{{goods[2].goods[2].name}}</view>
+      </view>
+      <view class="selectmoney">￥{{goods[2].goods[2].price}}</view>
+      <view class="selectshop">{{goods[2].shop_name}}</view>
+    </view>
+    <view class="selectframe" bindtap='bindViewTap' data-state="{{goods[0].shop_state}}"  data-shopid="{{goods[0].shop_id}}" data-index="3">
+      <image src='{{goods[3].goods[3].image}}' class='selectimg'></image>
+      <view class="selecttext">
+      <view class="selectname">{{goods[3].goods[3].name}}</view>
+      </view>
+      <view class="selectmoney">￥{{goods[3].goods[3].price}}</view>
+      <view class="selectshop">{{goods[3].shop_name}}</view>
+    </view>
+  </view>
+<!-- </view> -->
+<!-- <view style="position:relative; height:100rpx;"></view> -->
+<view class="swiper-tab{{headtop? '1':''}}" style='top:{{navH-1}}px' hidden="{{data.data_top == 5}}" id="box">
+    <view class="swiper-tab-list {{current==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+      <image src="{{data.barimageone}}" class="goodsimg"></image>
+      <view>{{data.barone}}</view>
+    </view>
+    <view class="swiper-tab-list {{current==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">
+      <image src="{{data.barimagetwo}}" class="goodsimg"></image>
+      <view>{{data.bartwo}}</view>
+    </view>
+    <view class="swiper-tab-list {{current==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">
+      <image src="{{data.barimagethree}}" class="goodsimg"></image>
+      <view>{{data.barthree}}</view></view>
+    <view class="swiper-tab-list {{current==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">
+      <image src="{{data.barimagefour}}" class="goodsimg"></image>
+      <view>{{data.barfour}}</view></view>
+    <view class="swiper-tab-list {{current==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">
+      <image src="{{data.barimagefive}}" class="goodsimg"></image>
+      <view>{{data.barfive}}</view></view>
+</view> 
+<swiper  class="swiper-box" duration="300" style="height:{{winHeight}}rpx" >
+    <swiper-item data-current="{{currentTab}}" bindchange="bindChange" bindtouchstart='touchStart' bindtouchend="touchEnd">
+        <block wx:for="{{posts_key}}" wx:for-item="item" wx:key="item">
+            <view class='shop' hover-class='shop-hover' data-shopid="{{item.shop_id}}" data-state="{{item.shop_state}}"  bindtap="bindViewTap">
+                <view style="position:relative" >
+                  <view  class='imgfont' wx:if="{{item.feature==1}}"> {{item.shop_feature}} </view> 
+                  <image src='{{item.shop_logo}}' class='goods_img' lazy-load="true"></image>
+                </view>
+                <text class='shop_name'>{{item.shop_name}}</text>
+                <view class='shop_info'>
+                    <view class="stars">
+                      <template wx:if="{{item.shop_score<=200}}" is="stars1"/>
+                      <template wx:elif="{{item.shop_score<=300}}" is="stars2"/>
+                      <template wx:elif="{{item.shop_score<=400}}" is="stars3"/>
+                      <template wx:elif="{{item.shop_score<=500}}" is="stars4"/>
+                      <template wx:elif="{{item.shop_score<=600}}" is="stars5"/>
+                      <template wx:elif="{{item.shop_score<=700}}" is="stars6"/>
+                      <template wx:elif="{{item.shop_score<=800}}" is="stars7"/>
+                      <template wx:elif="{{item.shop_score<=900}}" is="stars8"/>
+                      <template wx:elif="{{item.shop_score>900}}" is="stars9"/>
+                    </view>
+                    <!-- <text>{{item.shop_score}}</text> -->
+                    <text class='shopmid_ave' hidden='{{data_top == 5}}'>平均消费{{item.shop_percapita}}元/人</text>
+                </view>
+                <view class="shopmids" hidden='{{data_top == 5}}'>
+                    <text class='shopmid_ave'>起送费￥{{item.shop_mincharge}}</text>
+                    <text class='shopmid_aves'>配送费￥{{item.shop_sendprice}}</text>
+                    <text class='shopmid_aves'>包装费￥{{item.shop_packprice}}</text>
+                </view>
+                <view class="shopmid" bindtap="getphone" >
+                    <image src='/images/phone.png'></image>
+                    <text>{{item.shop_phone}}</text>
+                </view>
+                <view class='shop_label' wx:for="{{item.scope}}" wx:for-item="n" wx:key="n">
+                    <text>{{n.shop_name}}</text>
+                    <text wx:if="{{item.scope.shop_type1}}">饭</text>
+                    <text wx:if="{{item.scope.shop_type2}}">饮</text>
+                    <text wx:if="{{item.scope.shop_type3}}">晚</text>
+                    <text wx:if="{{item.scope.shop_type4}}">夜</text>
+                </view>
+                <text wx:if="{{item.shop_state==1}}" hidden='{{data_top == 5}}' class='close'>CLOSE</text>
+                <text wx:if="{{item.shop_state==2}}" hidden='{{data_top == 5}}' class='open'>OPEN</text>
+              </view>   
+        </block>
+    </swiper-item>
+</swiper>
+<!-- <view style="height:100rpx;font-size:20rpx;text-align:center;line-height:100rpx;color:#CCCCCC;">无更多商店~</view> -->

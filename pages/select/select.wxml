@@ -1,0 +1,70 @@
+<view class='box'>
+    <image></image>
+    <view class='name'>文化差异与跨文化交际</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text>名额 10/100</text>
+        <text>周四7-8节</text>
+    </view>
+    <view class='btn' hover-class='btn-hover'>报名</view>
+</view>
+<view class='box'>
+    <image></image>
+    <view class='name'>葡萄酒与西方文化</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text>名额 50/100</text>
+        <text>周三1-2节</text>
+    </view>
+    <view class='btn' hover-class='btn-hover'>报名</view>
+</view>
+<view class='box'>
+    <image></image>
+    <view class='name'>英美文化概论</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text>名额 15/100</text>
+        <text>周二3-4节</text>
+    </view>
+    <view class='btn' hover-class='btn-hover'>报名</view>
+</view>
+<view class='box'>
+    <image></image>
+    <view class='name'>考古发现与探索</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text>名额 30/100</text>
+        <text>周一1-2节</text>
+    </view>
+    <view class='btn' hover-class='btn-hover'>报名</view>
+</view>
+<view class='box'>
+    <image></image>
+    <view class='name'>美的历程：美学导论</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text>名额 45/100</text>
+        <text style='color:#FF0000;'>周一3-4节</text>
+    </view>
+    <view class='btn' hover-class='btn-hover'>报名</view>
+</view>
+<view class='box'>
+    <image></image>
+    <view class='name'>法语学习与法国文化</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text style='color:#FF0000;'>名额 100/100</text>
+        <text>周五7-8节</text>
+    </view>
+    <view class='btn1'>名额已满</view>
+</view>
+<view class='box' style='border-bottom:none;'>
+    <image></image>
+    <view class='name'>中华传统文化之戏曲瑰宝</view>
+    <view class='info'>
+        <text>学分 2.0</text>
+        <text style='color:#FF0000;'>名额 100/100</text>
+        <text style='color:#FF0000;'>周一5-6节</text>
+    </view>
+    <view class='btn1'>名额已满</view>
+</view>

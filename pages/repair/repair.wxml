@@ -1,0 +1,67 @@
+<page>
+<view class='heard'>
+  <view class='nav bg-gray' style='height:{{navH}}px'>
+    <view class='nav-title'>
+    <view class='right-arrow' bindtap="goHome"></view>
+     <text>我要报修</text>
+    </view>
+  </view>
+</view>
+<view class="repairDescribe" style='margin-top:{{navH+5}}px'>
+  <view class="top">
+    <view class="topInner">
+      <text>报修类型</text>
+      <picker bindchange="kindChange" value="{{kind[index]}}" range="{{kind}}" class="chooseKind">
+        <view class="picker">
+        {{kind[kindIndex]}}
+        <view class='bttom-arrow' bindtap="chooesKind"></view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="buttom">
+    <textarea placeholder='具体描述下您的问题(限300字内)' class='problem' bindblur='describeProblem'></textarea>
+    <view class='photoArea'>
+      <view class='imgChooes' bindtap="imgChooes"><image src='/images/plus.png'></image></view>
+      <image class='imgChooes' src='{{imagesPath[0]}}' bindlongpress='deleteImg1'></image>
+      <image class='imgChooes' src='{{imagesPath[1]}}' bindlongpress='deleteImg2'></image>
+      <image class='imgChooes' src='{{imagesPath[2]}}' bindlongpress='deleteImg3'></image>
+      <image class='imgChooes' src='{{imagesPath[3]}}' bindlongpress='deleteImg4'></image>
+    </view>
+  </view>
+</view>
+<view class='personMessage'>
+    <view class='nameCompany'>
+       <view class='name'>
+         <image src='/images/own2.png'></image>
+         <input placeholder='请输入您的名字' value='{{name}}' bindblur='repairUser'></input>
+       </view>
+       <view class='company' bindtap='chooseCompany'>
+         <picker bindchange="chooseCompany" value="{{company[index]}}" range="{{company}}" >
+          <view class="picker">
+          {{company[companyIndex]}}
+          <view class='address-bttom-arrow'></view>
+          </view>
+        </picker>
+       </view>
+    </view>
+       <view class='address'>
+         <image src='/images/address.png'></image>
+         <input placeholder='请输入维修地址' bindblur='repairAddress' value='{{repairAddress}}'></input>
+       </view>
+       <view class='phone'>
+         <image src='/images/userPhone.png'></image>
+         <input placeholder='请输入电话' bindblur='repairPhone' value='{{repairPhone}}'></input>
+       </view>
+       <view class='time'>
+         <image src='/images/repairTime.png'></image>
+         <picker bindchange="changeTime" value="{{time[Index]}}" range="{{time}}" class="chooseTime" >
+           <view class="picker">
+           {{time[timeIndex]}}
+           <view class='time-right-arrow' bindtap="chooesTime"></view>
+           </view>
+         </picker>
+       </view>
+</view>
+<button class='foundRepairBtn' bindtap='goDetails'>创建订单</button>
+</page>

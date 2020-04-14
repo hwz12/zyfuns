@@ -1,0 +1,23 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>订单评价</text>
+        </view>
+    </view>
+</view>
+<view class='phone' style="margin-top:{{navH}}px">
+    <view class='info'>
+        <text class='headline'>电话协商退单</text>
+        <text class='text'>商品已经发货,建议拨打商家电话进行协商</text>
+    </view>
+    <view class='phonebtn'  hover-class='btn-hover' bindtap="bindViewTap1">商家电话</view>
+</view>
+<view class='menu'>
+    <text class='headline'>在线申请退款</text>
+    <text class='reason'>退款理由：</text>
+    <textarea auto-height bindinput="settext" />
+    <view style='text-align: right;'>
+        <view class='mbtn' bindtap="onok">提交</view>
+    </view>
+</view>

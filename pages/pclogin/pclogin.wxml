@@ -1,0 +1,9 @@
+<view class='header'>
+    <view class="user_img">
+        <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view>
+        <button class='but' lang="zh_CN" bindtap="onGotUserInfo">登录</button>
+    </view>
+    <button class='but' plain='true' bindtap="cancel" style='border:none;font-size:14px'>取消登录</button>
+</view>

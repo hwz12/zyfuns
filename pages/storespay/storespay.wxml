@@ -1,0 +1,111 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+      <view class='nav-title'>
+      <view class='right-arrow' bindtap="goback"></view>
+      <text>创建百货订单</text>
+      </view>
+    </view>
+</view>
+<view class='local' bindtap="goselect" style="margin-top:{{navH+10}}px">
+    <view class="localdetails">订单详情</view>
+    <view class='localmid'>
+      <image src='/images/pay/local_add.png' class='local_add'></image>
+      <view class="localtext">{{data.address}}</view>
+    </view>
+    <view class='localcont'>
+        <text class='local_name'>{{data.name}}</text>
+        <text class='local_phone'>{{data.phone}}</text>
+    </view>
+    <view class="link-top"></view>
+    <view class="locallast">
+      <image src='/images/pay/local_time.png' class='local_add'></image>
+      <view class="localtime">{{data.time}}立即配送</view>
+    </view>
+</view>
+<view class='infos'>
+    <view class='name_box'>
+        <view class='shop_name'>{{data.storename}}</view>
+    </view>
+    <block wx:for="{{data.goods}}" wx:for-item="item" wx:key="item" wx:for-index="bag" wx:key="bag">
+      <view class="bagmenu">
+        <!-- <view class="baghead">
+          <image src='/images/pay/local_bag.png' class='local_add'></image>
+          <view class="bagheadtext">{{bag+1}}号袋子
+            <text class="bagprice">￥{{item.addprice}}</text>
+          </view>
+        </view> -->
+        <view class='info' wx:for="{{item.data}}" wx:for-item="i" wx:key="i">
+            <image src='{{i.image}}' class="bagimage"></image>
+            <view class="infohead">
+              <text class='info_name'>{{i.name}}</text>
+              <!-- <text class='info_money' hidden='{{item.type == 2}}'>￥{{i.addprice}}</text> -->
+            </view>
+            <view class="infomenu">
+              <view wx:for="{{i.spec}}" wx:for-item="x" wx:key="x">
+                <text class="infotype">{{x}}</text>
+              </view>
+            </view>
+            <view class="infolast">
+            <text class='info_num'>×{{i.num}}</text>
+            <text class='info_money' hidden='{{item.type == 2}}'>￥{{i.addprice}}</text>
+            </view>
+        </view>
+      </view>
+    </block>
+    <view class='cost'>
+        <text class='cost_name'>包装费</text>
+        <text class='cost_price'>￥{{data.packprice}}</text>
+    </view>
+    <view class='cost'>
+        <text class='cost_name'>配送费</text>
+        <text class='cost_price'>￥{{data.sendprice}}</text>
+    </view>
+    <view wx:if="{{2<1}}" class='info'>
+        <text class='info_name'>满减优惠</text>
+        <text class='info_price' style='color:#549688;'>-￥2</text>
+    </view>
+    <view class='info_border'></view>
+    <!-- <view class='unpaid'>
+        <text>待支付</text>
+        <text class='unpaid_price'>￥{{data.payment}}</text>
+    </view> -->
+</view>
+<view class='discount'>
+  <view class="discountline">
+
+    <view class="discountmenu">
+      <view class="discountcoupon">商家优惠券</view>
+      <view style="float:right; padding-right:40rpx">
+        <text style="color:#CCCCCC">暂无可用优惠券</text>
+        <view class="left-arrow"></view>
+      </view>
+    </view>
+
+    <view class="discountlast">
+      <view class="discountcoupon">平台红包</view>
+      <view style="float:right; padding-right:40rpx">
+        <text style="color:#CCCCCC">暂无可用红包</text>
+        <view class="left-arrow"></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='dis'>
+    <view class="discoupon">优惠 - {{data.discount}}</view>
+    <view class="distext">支付 <text style="color:#DCB281">{{data.totalprice}}</text></view>
+</view>
+<view class='remark'>
+    <view class="remarkconnent">备注</view>
+    <textarea  bindblur='remark' value='{{text}}' style="height:150rpx;" />
+</view>
+<view style='height:110rpx'></view>
+<view class='btn_box'>
+    <view class='_price'>￥{{data.totalprice}}</view>
+    <view class='btn' bindtap="onpay" >去支付</view>
+</view>
+<!-- <cover-view class='btn_box'> -->
+  <!-- <button class="getprice"> -->
+      <!-- <input class='_price' value = "￥{{data.totalprice}}"></input>
+      <button class='btn' bindtap="onpay" >去支付</button> -->
+  <!-- </button> -->
+<!-- </cover-view> -->

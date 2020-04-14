@@ -1,0 +1,54 @@
+<import src="../shop_details/stars/stars.wxml" />
+<!-- 功能列表 -->
+<view class='heard'>
+  <view class='nav bg-gray' style='height:{{navH}}px'>
+    <view class='nav-title'>
+    <view class='right-arrow' bindtap="goHome"></view>
+     <text>百货</text>
+    </view>
+  </view>
+</view>
+<!-- <swiper class='swiperBox' style='margin-top:{{navH + 10}}px' bindtap='gostoresDetails'>
+  <swiper-item wx:for="{{shops}}" wx:key="item">
+    <block>
+      <image class="supimages" src="{{item.image}}"></image>
+      <text>{{item.name}}</text>
+    </block>
+  </swiper-item>
+</swiper> -->
+<view class='title' style='margin-top:{{navH -5}}px'>
+    <icon type="search" size='12' color='#2D2C31' style="top:{{navH + 13}}px" class='search_icon'/>
+    <input style='position: relative;top: 22rpx;'  class="check" placeholder="点击搜索商品或商家"></input>
+</view>
+<view>
+  <view wx:for="{{shops}}" wx:key="shops" style="position:relative">
+  <view data-store_id="{{item.store_id}}" data-store_state="{{item.state}}" bindtap='gostoresDetails' class="sup">
+      <image class="supimages" src="{{item.image}}"></image>
+      <view class="supmid">
+        <text class="supmid_name">{{item.name}}</text>
+        <view class='shop_info'>
+            <view class="stars">
+              <template wx:if="{{item.store_score<=200}}" is="stars1"/>
+              <template wx:elif="{{item.store_score<=300}}" is="stars2"/>
+              <template wx:elif="{{item.store_score<=400}}" is="stars3"/>
+              <template wx:elif="{{item.store_score<=500}}" is="stars4"/>
+              <template wx:elif="{{item.store_score<=600}}" is="stars5"/>
+              <template wx:elif="{{item.store_score<=700}}" is="stars6"/>
+              <template wx:elif="{{item.store_score<=800}}" is="stars7"/>
+              <template wx:elif="{{item.store_score<=900}}" is="stars8"/>
+              <template wx:elif="{{item.store_score>900}}" is="stars9"/>
+            </view>
+        </view>
+        <text class="supmin">起送 ￥{{item.mincharge}}</text>
+        <text>配送 ￥{{item.delivery}}</text>
+      </view>
+      <view class="suplast">
+        <text class="suptime">{{item.time}}统一配送</text>
+      </view>
+      <view class="suplast1">
+        <text class="suptime1" wx:if="{{item.state ==2}}">open</text>
+        <text class="suptime2" wx:if="{{item.state ==1}}">close</text>
+      </view>
+    </view>
+  </view>
+</view>

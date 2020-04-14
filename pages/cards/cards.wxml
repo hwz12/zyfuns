@@ -1,0 +1,49 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>添加地址</text>
+        </view>
+    </view>
+</view>
+<swiper vertical='true' circular='true' current="{{index}}" bindchange="bindChange">
+    <swiper-item>
+        <image style='background-color: red;'></image>
+    </swiper-item>
+    <swiper-item>
+        <image style='background-color: pink;'></image>
+    </swiper-item>
+</swiper>
+<view class='info'>
+    <view class='genre'>
+        <text class='genre_name'>充值卡类</text>
+        <picker class='p_box' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+           {{array[index]}}
+           <view class='picker_icon'></view>
+        </picker>
+    </view>
+    <view class='btns'>
+        <view class="btn {{btnid==0 ? 'on' : ''}}" style='float:left;margin-left: 20rpx;' data-btnid="0" bindtap="onbutton">
+            <text class='money'>9.9元</text>
+            <text class='number'>{{text1}}</text>
+        </view>
+        <view class="btn {{btnid==1 ? 'on' : ''}}" data-btnid="1" bindtap="onbutton">
+            <text class='money'>19.8元</text>
+            <text class='number'>{{text2}}</text>
+        </view>
+        <view class="btn {{btnid==2 ? 'on' : ''}}" style='float:right;margin-right: 20rpx;' data-btnid="2" bindtap="onbutton">
+            <text class='money'>48.8元</text>
+            <text class='number'>{{text3}}</text>
+        </view>
+        <view class="btn {{btnid==3 ? 'on' : ''}}" style='position:absolute;left:20rpx;bottom:12rpx;' data-btnid="3" bindtap="onbutton">
+            <text class='money'>77.8元</text>
+            <text class='number'>{{text4}}</text>
+        </view>
+        <view class="btn {{btnid==4 ? 'on' : ''}}" style='margin-top: 20rpx;' data-btnid="4" bindtap="onbutton">
+            <text class='money'>96.8元</text>
+            <text class='number'>{{text5}}</text>
+        </view>
+    </view>
+    <view class='footer'>注：由于校园卡服务器安全策略，充值之后可能需要1-2分钟后到账。</view>
+</view>
+<view class='btn_box' hover-class='btn_hover'>提交订单</view>

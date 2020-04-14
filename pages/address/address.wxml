@@ -1,0 +1,31 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>添加地址</text>
+        </view>
+    </view>
+</view>
+<view class='header' style='margin-top:{{navH}}px'>
+    <text bindtap="layera">{{layer0}}</text>
+    <text bindtap="layerb" wx:if="{{ab>1}}" data-a='{{dataa}}'>{{layer1}}</text>
+    <text bindtap="layerc" wx:if="{{ab>2}}" data-a='{{dataa}}' data-b='{{datab}}'>{{layer2}}</text>
+    <text bindtap="layerd" wx:if="{{ab>3}}" data-a='{{dataa}}' data-b='{{datab}}' data-c='{{datac}}'>{{layer3}}</text>
+    <text wx:if="{{ab>4}}">{{layer4}}</text>
+    <view class='triangle'></view>
+</view>
+<view class='address_box {{showView ? "show" : "hide"}}'>
+    <block wx:for="{{posts_key}}" wx:for-item="item" wx:key="item">
+        <text class='address' data-layer='{{lay}}' data-dataa='{{item.id0}}' data-datab='{{item.id1}}' data-datac='{{item.id2}}' data-datad='{{item.id3}}' data-datae='{{item.id4}}' data-dataf='{{item.id5}}' data-name='{{item.name}}' data-adid='{{item.addressid}}' bindtap="getaddress">{{item.name}}</text>
+    </block>
+</view>
+<view class='setinfo {{showView ? "hide" : "show"}}'>
+    <view class='info_box'>
+        <input  maxlength="30" placeholder="姓名" bindinput="getname" class='input_box' />
+        <!-- <input  maxlength="12" type="number" placeholder="学号" bindinput="getstudent" class='input_box' /> -->
+        <input  maxlength="11" type="number" placeholder="手机号" bindinput="getphone" class='input_box' />
+        <!-- <input  maxlength="18" type="idcard" placeholder="身份证" bindinput="getid" class='input_box' /> -->
+    </view>
+    <view type='text' bindtap="postok" class='btn' style='margin-bottom: 10rpx;'>确定</view>
+    <view type='number' bindtap="reset" class='btn'>重置</view>
+</view>

@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/shops/shops",
+    "pages/orders/orders",
+    "pages/order_details/order_details",
+    "pages/shop_life/shop_life",
+    "pages/shop_details/shop_details",
+    "pages/pay/pay",
+    "pages/own/own",
+    "pages/pclogin/pclogin",
+    "pages/grade/grade",
+    "pages/timetable/timetable",
+    "pages/cards/cards",
+    "pages/user/user",
+    "pages/select/select",
+    "pages/address/address",
+    "pages/manageaddress/manageaddress",
+    "pages/webpage/webpage",
+    "pages/score/score",
+    "pages/refund/refund",
+    "pages/addad/addad",
+    "pages/selectad/selectad",
+    "pages/video/video",
+    "pages/repair/repair",
+    "pages/noticeinfo/noticeinfo",
+    "pages/zyfuns/zyfuns",
+    "pages/repairDetails/repairDetails",
+    "pages/stores/stores",
+    "pages/scan/scan",
+    "pages/storesDetails/storesDetails",
+    "pages/obtain/obtain",
+    "pages/obtainsure/obtainsure",
+    "pages/storespay/storespay",
+    "pages/integral/integral",
+    "pages/integraldetaile/integraldetaile",
+    "pages/againorder/againorder"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2D2C31",
+    "navigationBarTitleText": "状元范",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx04b49937f001fb12"
+  ],
+  "tabBar": {
+    "selectedColor": "#549688",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/index1.png",
+        "selectedIconPath": "images/index2.png"
+      },
+      {
+        "pagePath": "pages/shops/shops",
+        "text": "店铺",
+        "iconPath": "images/shops1.png",
+        "selectedIconPath": "images/shops2.png"
+      },
+      {
+        "pagePath": "pages/orders/orders",
+        "text": "我的订单",
+        "iconPath": "images/orders1.png",
+        "selectedIconPath": "images/orders2.png"
+      },
+      {
+        "pagePath": "pages/own/own",
+        "text": "个人中心",
+        "iconPath": "images/own1.png",
+        "selectedIconPath": "images/own2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

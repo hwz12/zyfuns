@@ -1,0 +1,152 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.3",
+	"appid": "wx78ee15d7dd15b122",
+	"projectname": "%E7%8A%B6%E5%85%83%E8%8C%83%E5%B9%B3%E5%8F%B0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 1,
+					"name": "订单详情",
+					"pathName": "pages/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "测试",
+					"pathName": "pages/score/score",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "地址",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "订单详情",
+					"pathName": "pages/order_details/order_details",
+					"query": "orderid=21535",
+					"scene": 1014
+				},
+				{
+					"id": -1,
+					"name": "美食快餐",
+					"pathName": "pages/shop_ricelife/shop_ricelife",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "订单页面",
+					"pathName": "pages/refund/refund",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "百货创建支付",
+					"pathName": "pages/storespay/storespay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修",
+					"pathName": "pages/repair/repair",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修订单详情",
+					"pathName": "pages/repairDetails/repairDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修详情",
+					"pathName": "pages/repairDetails/repairDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺详情",
+					"pathName": "pages/shop_details/shop_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "index",
+					"pathName": "pages/scan/scan",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "登录",
+					"pathName": "pages/obtain/obtain",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分",
+					"pathName": "pages/integral/integral",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论",
+					"pathName": "pages/score/score",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "授权",
+					"pathName": "pages/obtain/obtain",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

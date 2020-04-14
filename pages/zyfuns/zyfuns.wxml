@@ -1,0 +1,28 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+      <view class='nav-title'>
+      <view class='right-arrow' bindtap="goback"></view>
+      <text>状元范</text>
+      </view>
+    </view>
+</view>
+<view class='header' style="margin-top:{{navH}}px">
+    <image src='http://data.zyfuns.com/zyf_logo.png' class='logo'></image>
+    <view>状元范小程序 1.0.4</view>
+</view>
+<view class='btns'>
+    <view class='btn' bindtap="bindViewTap">功能介绍</view>
+    <view class='one_border1'></view>
+    <view class='btn' bindtap="bindViewTap1">状元范</view>
+    <view class='one_border1'></view>
+    <view class='btn'>官方网站</view>
+</view>
+<view class='footer'>
+<!--
+    <view style='color:#549688;'>《状元范软件许可及服务协议》</view>
+    <view style='color:#555555;'>和</view>
+    <view style='color:#549688;'>《状元范隐私保护指引》</view>
+-->
+    <view style='margin-top:5px;color:#555555;'>状元范项目组 版权所有</view>
+    <view style='color:#555555;'>All Right Reserved</view>
+</view>

@@ -1,0 +1,167 @@
+<view class='heard'>
+  <view class='nav bg-white' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      首页
+      <image src='/images/scan.png' mode='aspectFit' class='back' bindtap='click'></image>
+    </view>
+  </view>
+</view>
+<view style='margin-top:{{navH}}px;'></view>
+<!-- banner轮播图 wx:for="{{posts_key}}" wx:for-item="item" wx:key="{{index}}"-->
+<scroll-view scroll-y="true" style="width:100%;min-height:100%;">
+  <view class="swiper-container">
+    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="swiperCurrent" bindchange="swiperchange">
+      <swiper-item class="swiper_item" wx:for="{{posts_key}}" wx:key="url">
+        <image class="slide-image" data-url="{{item.url}}" bindtap="bindViewTap" style="-webkit-transform: scale({{ swiperCurrent == index ? 0.9 : 0.65 }}) translate({{ (swiperCurrent == index - 1 || swiperCurrent == index + 1) ? (swiperCurrent - index) * 30 : 0 }}%, 0); -webkit-transition: 0.6s;"
+          src='{{item.image}}' mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{posts_key}}" wx:key="unique">
+        <van-card bindtap="get_index" data-index="{{index}}">
+          <view class="dot{{index === swiperCurrent ? ' active' : ''}}"></view>
+        </van-card>
+      </block>
+    </view>
+  </view>
+</scroll-view>
+
+<!--index.wxml-->
+<!-- <swiper indicator-dots='true' autoplay='true' interval='true' interval="{{interval}}" duration='{{duration}}'> -->
+
+<!-- 暂时先关一下加载下面的这一张图，上线的时候记得打开 -->
+<!-- <swiper-item wx:if="{{banner}}" data-url="#" bindtap="bindViewTap"> -->
+<!-- <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image> -->
+<!-- </swiper-item>
+    <block wx:for="{{posts_key}}" wx:for-item="item" wx:key="item">
+      <swiper-item data-url="{{item.url}}" data-state="{{item.shop_state}}" data-shopid="{{item.shop_id}}" bindtap="bindViewTap">
+        <image src='https://datas.zyfuns.com/image/banner/{{item.image}}'></image>
+      </swiper-item>
+    </block>
+  </swiper> -->
+
+
+<!-- 新闻列表 -->
+<view class='module'>
+  <view hover-class='module-hover' bindtap='gotofood'>
+    <image src='/images/newfour/food.png'></image>
+    <text>{{getname.king_one}}</text>
+  </view>
+  <view hover-class='module-hover' bindtap='gotostore'>
+    <image src='/images/newfour/store.png'></image>
+    <text>{{getname.king_two}}</text>
+  </view>
+  <view hover-class='module-hover' bindtap='gotorepair'>
+    <image src='/images/newfour/worke.png'></image>
+    <text>{{getname.king_three}}</text>
+  </view>
+  <view hover-class='module-hover' bindtap='gotocar'>
+    <image src='/images/newfour/car.png'></image>
+    <text>{{getname.king_four}}</text>
+  </view>
+</view>
+
+<view class='module'>
+  <view hover-class='module-hover' bindtap='gotoexpress'>
+    <image src='/images/newfour/express.png'></image>
+    <text>{{getname.king_five}}</text>
+  </view>
+  <view hover-class='module-hover' bindtap='gotocard'>
+    <image src='/images/newfour/card.png'></image>
+    <text>{{getname.king_six}}</text>
+  </view>
+  <view hover-class='module-hover' bindtap='gotoclass'>
+    <image src='/images/newfour/class.png'></image>
+    <text>{{getname.king_seven}}</text>
+  </view>
+  <view hover-class='module-hover' bindtap='gotograde'>
+    <image src='/images/newfour/grade.png'></image>
+    <text>{{getname.king_eight}}</text>
+  </view>
+
+</view>
+<!-- <view class="link-top"></view> -->
+<view class="article" hidden='data.data == 5'>推荐文章</view>
+<view wx:for="{{notice_list}}" wx:for-item="item" wx:key="item">
+  <view class='notice1' mode="widthFix" hover-class='notice-hover1' data-id="{{item.id}}" bindtap="gotonews" hidden='data.data == 5'>
+    <view style="position:relative" class="array1">
+      <view class='imgfont1'> {{item.author}} </view>
+      <image src='{{item.picture}}' class='img1'></image>
+      <view class='title1'>{{item.title}}</view>
+    </view>
+  </view>
+</view>
+<view class="article1">精选文章</view>
+<view wx:for="{{notice_list}}" wx:for-item="item" wx:key="item">
+  <view class='notice' mode="widthFix" hover-class='notice-hover' data-id="{{item.id}}" bindtap="gotonews">
+    <image src='{{item.picture}}' class='img'></image>
+
+    <view>
+      <view>
+        <text class='title'>{{item.title}}</text>
+      </view>
+
+      <text class='author'>{{item.author}}</text>
+      <text class='timein'>{{item.timein}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='ad'>
+  <ad unit-id="adunit-ba093badbcd872fd"></ad>
+</view>
+
+
+<view style='height:15rpx'></view>
+<!-- <view class="modal-box" hidden="{{flag}}" bindtap="hide">
+  <view class="modal-body">
+    <view class="modal-content">
+      <image src="../../images/new.png" class="fenxiang" bindtap="newCoupon"></image>
+      <image src="../../images/close.png" class="knowBtnImg" bindtap="hide"></image>
+    </view>
+  </view>
+</view> -->
+
+<!-- 规则提示 -->
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<!-- 弹出层 -->
+<view wx:if="{{do.font == 1}}">
+  <view class="modalDlg" wx:if="{{showModal}}" style="background-image:url({{do.background}})">
+    <view style="display:flex;width:100%">
+      <view style="flex:1" wx:if="{{do.font == 1}}" bindtap="ok">
+        <image class="fork" src="/images/shop_details/fork.png"></image>
+      </view>
+      <view class="code">{{do.title}}</view>
+      <view style="flex:1"></view>
+    </view>
+    <view class="last">
+      <view wx:for="{{do.discount}}" wx:key="item" class="lasthead">
+        <view class="lastprice">
+          <view class="lastpriceborder"></view>
+          <text style="font-size:64rpx;">{{item.price}}</text>{{item.element}}
+          <view class="lastpriceup"></view>
+        </view>
+        <view style="flex:6" class="lastmenu">
+          <text class="lastdown">{{item.name}}</text>
+          <text class="lasttext">{{item.remarks}}</text>
+        </view>
+        <view class="lastbutton" bindtap='receive' data-receive_id="{{item.id}}">
+          <view class="lastbut">{{item.but}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{do.font == 2}}">
+  <view class="modalDlgs" wx:if="{{showModal}}">
+    <view style="display:flex;width:100%;position:absolute;">
+      <view style="flex:1" wx:if="{{do.font == 2}}" bindtap="imgok">
+        <image class="fork" src="/images/shop_details/fork.png"></image>
+      </view>
+      <view style="flex:1"></view>
+    </view>
+    <image class="modimg" bindtap='goshop' data-url="{{do.AD.AD_url}}" src="{{do.AD.AD_image}}"></image>
+  </view>
+</view>

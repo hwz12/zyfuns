@@ -1,0 +1,91 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>成绩查询</text>
+        </view>
+    </view>
+</view>
+<view class='department' style="margin-top:{{navH}}px">XXXXXX学部</view>
+<view class='user_info'>
+    <text>XXXXXX</text>
+    <text>XXX</text>
+    <text>XXXXXXXXXXX</text>
+</view>
+<view class='subject'>
+    <view class='subject_left'></view>
+    <view class='subject_right'>
+        <view class='info_left'>
+            <text class='subject_name'>网络设备配置管理</text>
+            <text class='credit'>学分：3.0</text>
+        </view>
+        <view class='info_right'>
+            <view class='state'>通过</view>
+            <text>98</text>
+        </view>
+    </view>
+</view>
+<view class='subject'>
+    <view class='subject_left'></view>
+    <view class='subject_right'>
+        <view class='info_left'>
+            <text class='subject_name'>asp.net</text>
+            <text class='credit'>学分：3.0</text>
+        </view>
+        <view class='info_right'>
+            <view class='state'>通过</view>
+            <text>98</text>
+        </view>
+    </view>
+</view>
+<view class='subject'>
+    <view class='subject_left'></view>
+    <view class='subject_right'>
+        <view class='info_left'>
+            <text class='subject_name'>Flash动画制作</text>
+            <text class='credit'>学分：3.0</text>
+        </view>
+        <view class='info_right'>
+            <view class='state'>通过</view>
+            <text>98</text>
+        </view>
+    </view>
+</view>
+<view class='subject'>
+    <view class='subject_left'></view>
+    <view class='subject_right'>
+        <view class='info_left'>
+            <text class='subject_name'>组网技术</text>
+            <text class='credit'>学分：3.0</text>
+        </view>
+        <view class='info_right'>
+            <view class='state'>通过</view>
+            <text>95.5</text>
+        </view>
+    </view>
+</view>
+<view class='subject'>
+    <view class='subject_left'></view>
+    <view class='subject_right'>
+        <view class='info_left'>
+            <text class='subject_name'>网络安全</text>
+            <text class='credit'>学分：3.0</text>
+        </view>
+        <view class='info_right'>
+            <view class='state1'>未通过</view>
+            <text>59</text>
+        </view>
+    </view>
+</view>
+<view class='subject'>
+    <view class='subject_left'></view>
+    <view class='subject_right'>
+        <view class='info_left'>
+            <text class='subject_name'>计算机网络管理(中级)</text>
+            <text class='credit'>学分：3.0</text>
+        </view>
+        <view class='info_right'>
+            <text style='color:#BCBCBC;'>未公布</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,50 @@
+<view class='header_bg'></view>
+<view class='header'>
+  <view class='background_image' style='no-repeat 50% 50%;background-size:100%;'>
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class='user_info'>
+    <view class="user_img">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="user_name">
+      <open-data type="usernickName"></open-data>
+    </view>
+  </view>
+</view>
+
+<button class='menu' plain='true' style='border:none;' bindtap='click'>
+  <image src='/images/scan.png' class='menu_icon'></image>
+  <text>扫一扫</text>
+  <image src='/images/own_icon2.png' class='arc'></image>
+</button>
+<view class='one_border'></view>
+<button class='menu' plain='true' style='border:none;' bindtap='integral'>
+  <image src='/images/own_integral.png' class='menu_icon'></image>
+  <text>我的积分</text>
+  <image src='/images/own_icon2.png' class='arc'></image>
+</button>
+<view class='one_border'></view>
+<button class='menu' plain='true' style='border:none;' bindtap='mycode'>
+  <image src='/images/own_card.png' class='menu_icon'></image>
+  <text>我的卡包</text>
+  <image src='/images/own_icon2.png' class='arc'></image>
+</button>
+<view class='one_border'></view>
+<button class='menu' plain='true' style='border:none;' bindtap='myaddress'>
+  <image src='/images/address.png' class='menu_icon'></image>
+  <text>我的地址</text>
+  <image src='/images/own_icon2.png' class='arc'></image>
+</button>
+<view class='one_border'></view>
+<button class='menu' open-type='contact' plain='true' style='border:none;' bindtap='office'>
+  <image src='/images/own_phone.png' class='menu_icon'></image>
+  <text>联系客服</text>
+  <image src='/images/own_icon2.png' class='arc'></image>
+</button>
+<view class='one_border'></view>
+<button class='menu' plain='true' style='border:none;' bindtap='zyfuns'>
+  <image src='/images/zyfuns.png' class='menu_icon'></image>
+  <text>关于</text>
+  <image src='/images/own_icon2.png' class='arc'></image>
+</button>

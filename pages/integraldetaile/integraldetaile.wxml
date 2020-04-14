@@ -1,0 +1,41 @@
+<!--pages/integraldetaile/integraldetaile.wxml-->
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>收支明细</text>
+        </view>
+    </view>
+</view>
+
+
+<view class="swiper-tab" style="margin-top:{{navH}}px">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">收入</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">支出</view>
+</view>
+<view style='height:{{navH+50}}px;'></view>
+
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}rpx" bindchange="bindChange">
+      <swiper-item>
+        <block wx:for="{{links}}" wx:key="item">
+          <view class="menu">
+              <view class="menuleft">
+                <text>{{item.name}}</text>
+                <text>{{item.time}}</text>
+              </view>
+              <view class="menuright">+{{item.num}}</view>
+          </view>
+        </block>
+      </swiper-item>
+      <swiper-item>
+        <block wx:for="{{links}}" wx:key="item">
+          <view class="menu">
+              <view class="menuleft">
+                <text>{{item.name}}</text>
+                <text>{{item.time}}</text>
+              </view>
+              <view class="menuright">-{{item.num}}</view>
+          </view>
+        </block>
+      </swiper-item>
+  </swiper >

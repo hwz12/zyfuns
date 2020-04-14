@@ -1,0 +1,25 @@
+<!--pages/noticeinfo/noticeinfo.wxml-->
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>文章详情</text>
+        </view>
+    </view>
+</view>
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container" style="margin-top:{{navH}}px;">
+    <view class="title">{{title}}</view>
+    <image src="../../images/author.png" class="img-author" bindtap='shop'></image>
+    <text class="author">{{author}}</text>
+    <text class="timein">{{timein}}</text>
+    <view class="author-img">
+    </view>
+    <image class="shopimg" data-shopid="{{data.shopid}}" bindtap='shop' data-state="{{data.shop_state}}" src="{{data.img}}"></image>
+    <view class="entry-summary">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <!-- <image src="../../images/xxx.png" class="img"></image> -->
+    <ad unit-id="adunit-c0db2cb1c6228d72"></ad>
+</view>
+<view style='height:20rpx'></view>

@@ -1,0 +1,21 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>地址列表</text>
+        </view>
+    </view>
+</view>
+<view  style='margin-top:{{navH+10}}px'>
+  <block wx:for="{{data.address}}" wx:for-item="item" wx:for-index="i" wx:key="item" wx:key="i">
+      <view class='address_box' data-id='{{item.address}}' bindlongpress="updelete">
+          <view class='adname'>{{item.addname}}</view>
+          <view class='userinfo'>
+              <text class='username'>{{item.name}}</text>
+              <text class='userphone'>{{item.phone}}</text>
+          </view>
+      </view>
+  </block>
+</view>
+<view class='footer'>长按删除地址</view>
+<view class='btn' hover-class='btn_hover' bindtap="add_ad">添加地址</view>

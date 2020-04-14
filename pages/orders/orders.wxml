@@ -1,0 +1,164 @@
+<import src="order/order.wxml" />
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <text>订单详情</text>
+        </view>
+    </view>
+</view>
+<view class="swiper-tab"  style="margin-top:{{navH-10}}px">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">{{data.order_one}}</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">{{data.order_two}}</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">{{data.order_three}}</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">{{data.order_four}}</view>
+    <!-- <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">退款/售后</view> -->
+</view>
+<view style='height:{{navH+30}}px;'></view>
+<e-loading type="wanderingCubes" color='#455488'/>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}rpx" bindchange="bindChange">
+    <swiper-item>
+        <block wx:for="{{order}}" wx:for-item="item" wx:key="item">
+                <view class='order' bindtap="bindViewTap" data-orderid='{{item.order_id}}'>
+                <view class='order_info'>
+                    <image src='/images/shopes.png' class='shopes_icon'></image>
+                    <template is="goodsname" data="{{shopid:item.order_shopid,goodsname:item.order_shop}}"/>
+                    <view class='right-arrow'></view>
+                    <view class='pay_date'><text>{{item.msg}}</text></view>
+                      <view class='goods_name'><text>{{item.goods_name}}</text></view>
+                      <view class='onegoods_price'><text>￥{{item.order_price}}</text></view>
+                      <view class='goods_delicious'>
+                        <view  wx:for="{{item.order_spec}}" wx:for-item="n" wx:key="n">
+                          <text>{{n.name}}</text>
+                        </view>
+                      </view>
+                      <view class='goods_num'><text>x{{item.order_num}}</text></view>
+                      <view class='goods_money'><text style="float:right">共{{item.order_goodsnum}}件商品合计：￥{{item.order_payment}}(含配送费)</text></view>
+                </view>
+                <template wx:if="{{item.state==8}}" is="order1" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==9}}" is="order2" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==7}}" is="order3" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==0}}" is="order4" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==6}}" is="order5" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==1 || item.state==2}}" is="order6" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==3}}" is="order7" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==-1}}" is="order4" data="{{orderid:item.order_id}}"/>
+            </view>    
+        </block>
+    </swiper-item>
+    <swiper-item>
+        <block wx:for="{{order1}}" wx:for-item="item" wx:key="item">
+                <view class='order' bindtap="bindViewTap" data-orderid='{{item.order_id}}'>
+                <view class='order_info'>
+                   <image src='/images/shopes.png' class='shopes_icon'></image>
+                    <template is="goodsname" data="{{shopid:item.order_shopid,goodsname:item.order_shop}}"/>
+                    <view class='right-arrow'></view>
+                    <view class='pay_date'><text>{{item.msg}}</text></view>
+                      <view class='goods_name'><text>{{item.goods_name}}</text></view>
+                      <view class='onegoods_price'><text>{{item.order_price}}</text></view>
+                      <view class='goods_delicious'>
+                        <view  wx:for="{{item.order_spec}}" wx:for-item="n" wx:key="n">
+                          <text>{{n.name}}</text>
+                        </view>
+                      </view>
+                      <view class='goods_num'><text>x{{item.order_num}}</text></view>
+                      <view class='goods_money'><text>共{{item.order_goodsnum}}件商品合计：￥{{item.order_payment}}(含配送费)</text></view>
+                </view>
+                <template wx:if="{{item.state==8}}" is="order1" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==9}}" is="order2" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==7}}" is="order3" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==0}}" is="order4" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==6}}" is="order5" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==1 || item.state==2}}" is="order6" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==3}}" is="order7" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==-1}}" is="order4" data="{{orderid:item.order_id}}"/>
+            </view>    
+        </block>
+    </swiper-item>
+    <swiper-item>
+        <block wx:for="{{order2}}" wx:for-item="item" wx:key="item">
+                <view class='order' bindtap="bindViewTap" data-orderid='{{item.order_id}}'>
+                <view class='order_info'>
+                   <image src='/images/shopes.png' class='shopes_icon'></image>
+                    <template is="goodsname" data="{{shopid:item.order_shopid,goodsname:item.order_shop}}"/>
+                    <view class='right-arrow'></view>
+                    <view class='pay_date'><text>{{item.msg}}</text></view>
+                      <view class='goods_name'><text>{{item.goods_name}}</text></view>
+                      <view class='onegoods_price'><text>{{item.order_price}}</text></view>
+                      <view class='goods_delicious'>
+                        <view  wx:for="{{item.order_spec}}" wx:for-item="n" wx:key="n">
+                          <text>{{n.name}}</text>
+                        </view>
+                      </view>
+                      <view class='goods_num'><text>x{{item.order_num}}</text></view>
+                      <view class='goods_money'><text>共{{item.order_goodsnum}}件商品合计：￥{{item.order_payment}}(含配送费)</text></view>
+                </view>
+                <template wx:if="{{item.state==8}}" is="order1" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==9}}" is="order2" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==7}}" is="order3" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==0}}" is="order4" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==6}}" is="order5" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==1 || item.state==2}}" is="order6" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==3}}" is="order7" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==-1}}" is="order4" data="{{orderid:item.order_id}}"/>
+            </view>    
+        </block>
+    </swiper-item>
+   <swiper-item>
+        <block wx:for="{{order3}}" wx:for-item="item" wx:key="item">
+                <view class='order' bindtap="bindViewTap" data-orderid='{{item.order_id}}'>
+                <view class='order_info'>
+                   <image src='/images/shopes.png' class='shopes_icon'></image>
+                    <template is="goodsname" data="{{shopid:item.order_shopid,goodsname:item.order_shop}}"/>
+                    <view class='right-arrow'></view>
+                    <view class='pay_date'><text>{{item.msg}}</text></view>
+                      <view class='goods_name'><text>{{item.goods_name}}</text></view>
+                      <view class='onegoods_price'><text>{{item.order_price}}</text></view>
+                      <view class='goods_delicious'>
+                        <view  wx:for="{{item.order_spec}}" wx:for-item="n" wx:key="n">
+                          <text>{{n.name}}</text>
+                        </view>
+                      </view>
+                      <view class='goods_num'><text>x{{item.order_num}}</text></view>
+                      <view class='goods_money'><text>共{{item.order_goodsnum}}件商品合计：￥{{item.order_payment}}(含配送费)</text></view>
+                </view>
+                <template wx:if="{{item.state==8}}" is="order1" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==9}}" is="order2" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==7}}" is="order3" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==0}}" is="order4" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==6}}" is="order5" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==1 || item.state==2}}" is="order6" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==3}}" is="order7" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==-1}}" is="order4" data="{{orderid:item.order_id}}"/>
+            </view>    
+        </block>
+    </swiper-item>
+    <swiper-item>
+        <block wx:for="{{order4}}" wx:for-item="item" wx:key="item">
+                <view class='order' bindtap="bindViewTap" data-orderid='{{item.order_id}}'>
+                <view class='order_info'>
+                   <image src='/images/shopes.png' class='shopes_icon'></image>
+                    <template is="goodsname" data="{{shopid:item.order_shopid,goodsname:item.order_shop}}"/>
+                    <view class='right-arrow'></view>
+                    <view class='pay_date'><text>{{item.msg}}</text></view>
+                      <view class='goods_name'><text class="goods_nametext">{{item.goods_name}}</text></view>
+                      <view class='onegoods_price'><text>{{item.order_price}}</text></view>
+                      <view class='goods_delicious'>
+                        <view  wx:for="{{item.order_spec}}" wx:for-item="n" wx:key="n">
+                          <text>{{n.name}}</text>
+                        </view>
+                      </view>
+                      <view class='goods_num'><text>x{{item.order_num}}</text></view>
+                      <view class='goods_money'><text>共{{item.order_goodsnum}}件商品合计：￥{{item.order_payment}}(含配送费)</text></view>
+                </view>
+                <template wx:if="{{item.state==8}}" is="order1" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==9}}" is="order2" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==7}}" is="order3" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==0}}" is="order4" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==6}}" is="order5" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==1 || item.state==2}}" is="order6" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==3}}" is="order7" data="{{orderid:item.order_id}}"/>
+                <template wx:elif="{{item.state==-1}}" is="order4" data="{{orderid:item.order_id}}"/>
+            </view>    
+        </block>
+    </swiper-item>
+</swiper>

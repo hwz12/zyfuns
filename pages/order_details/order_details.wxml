@@ -1,0 +1,195 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>订单详情</text>
+        </view>
+    </view>
+</view>
+<view class='header' style='margin-top:{{navH}}px'>
+    <view class='state'>
+        <view class='state_text'>
+            <view style='flex:2;color:#549688;'>商家备餐</view>
+            <view style="flex:6;color:#{{data.scan_state==1 ? '549688' : 'FFFFFF'}};">物流配送</view>
+            <view style="flex:2;color:#{{data.state==5 ? '549688' : 'FFFFFF'}};">订单送达</view>
+        </view>
+        <view class='state_icon'>
+            <view style='flex:1;text-align: right;'>
+                <view class='state1' style='margin-right:4px;'></view>
+            </view>
+            <view style='flex:3;'>
+                <progress wx:if="{{data.state<3}}" percent="{{data.scan_state==1 ? '100' : '0'}}" activeColor="#549688" backgroundColor="#FFFFFF" stroke-width="2" active style='margin-top:29rpx;' />
+                <progress wx:else percent="{{data.scan_state==1 ? '100' : '0'}}" activeColor="#549688" backgroundColor="#FFFFFF" stroke-width="2" style='margin-top:29rpx;' />
+            </view>
+            <view style='width:20rpx;margin:0 4px;'>
+                <view class="state{{data.scan_state==1 ? '1' : '2'}}"></view>
+            </view>
+            <view style='flex:3;'>
+                <progress percent="{{data.state==5 ? '100' : '0'}}" activeColor="#549688" backgroundColor="#FFFFFF" stroke-width="2" active style='margin-top:29rpx;' />
+            </view>
+            <view style='flex:1;'>
+                <view class="state{{data.state==5 ? '1' : '2'}}" style='margin-left:4px;'></view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='infos'>
+    <view class='name_box' bindtap='goshop' data-shopid="{{order.MO_shopid}}">
+        <view class='shop_name'>{{order.MO_shop}}</view>
+    </view>
+    <block wx:for="{{data.goods}}" wx:for-item="item" wx:key="item" wx:for-index="bag" wx:key="bag">
+      <view class="bagmenu">
+        <view class="baghead">
+          <image src='/images/pay/local_bag.png' class='local_add'></image>
+          <view class="bagheadtext">{{bag+1}}号袋子
+            <text class="bagprice">￥{{item.addprice}}</text>
+          </view>
+          
+        </view>
+        <view class='infoone' wx:for="{{item.data}}" wx:for-item="i" wx:key="i">
+            <image src='{{i.image}}' class="bagimage"></image>
+            <view class="infohead">
+              <text class='info_name'>{{i.name}}</text>
+              <!-- <text class='info_money' hidden='{{item.type == 2}}'>￥{{i.addprice}}</text> -->
+            </view>
+            <view class="infomenu">
+              <view wx:for="{{i.spec}}" wx:for-item="x" wx:key="x">
+                <text class="infotype">{{x.name}}</text>
+              </view>
+            </view>
+            <view class="infolast">
+            <text class='info_num'>×{{i.num}}</text>
+            <text class='info_money' hidden='{{item.type == 2}}'>￥{{i.price}}</text>
+            </view>
+        </view>
+      </view>
+    </block>
+    <view class='cost'>
+        <text class='cost_name'>包装费 X{{order.packnum}}</text>
+        <text class='cost_price'>￥{{order.packprice}}</text>
+    </view>
+    <view class='cost'>
+        <text class='cost_name'>餐盒费 X{{order.boxnum}}</text>
+        <text class='cost_price'>￥{{order.boxprice}}</text>
+    </view>
+    <view class='cost'>
+        <text class='cost_name'>配送费 {{order.sendnum}}</text>
+        <text class='cost_price'>￥{{order.sendprice}}</text>
+    </view>
+    <view class='cost'>
+        <text class='cost_name'>合计</text>
+        <text class='cost_price'>￥{{order.MO_payment}}</text>
+    </view>
+    <view wx:if="{{2<1}}" class='info'>
+        <text class='info_name'>满减优惠</text>
+        <text class='info_price' style='color:#549688;'>-￥2</text>
+    </view>
+    <view class='info_border'></view>
+    <!-- <view class='unpaid'>
+        <text>待支付</text>
+        <text class='unpaid_price'>￥{{data.payment}}</text>
+    </view> -->
+</view>
+<!-- <view class='shop_name' bindtap="gotoshop">
+    <text>{{data.shopname}}</text>
+    <image src='/images/own_icon2.png' class='arc'></image>
+</view> -->
+<!-- <block wx:for="{{data.goods}}" wx:for-item="item" wx:key="item">
+    <view class='goods'>
+        <image src='https://data.zyfuns.com/image/goods/{{data.shopid}}/{{item.image}}' class='goods_img'></image>
+        <view class='goods_name'>{{item.name}}</view>
+        <view class='goods_number'>
+            <text>￥{{item.price}}</text>
+            <text class='goods_num'>×{{item.num}}</text>
+        </view>
+    </view>
+</block> -->
+<!-- <view class='other_expenses'>
+    <view>
+        <text>包装费</text><text style='float:right;'>￥{{data.packcharge}}</text>
+    </view>
+    <view>
+        <text>配送费</text><text style='float:right;'>￥{{data.sendprice}}</text>
+    </view>
+    <view wx:if="{{data.official.price}}">
+        <text>官方优惠</text><text style='float:right;'>￥-{{data.official.price}}</text>
+    </view>
+    <view wx:if="{{data.shop.price}}">
+        <text>店铺优惠</text><text style='float:right;'>￥-{{data.shop.price}}</text>
+    </view>
+</view> -->
+<!-- <view class='total_price'>
+    <text style='color:#549688;'>实付：</text>
+    <text>￥{{data.payment}}</text>
+</view> -->
+<view class='_border'></view>
+<view class='_info'>订单详情</view>
+<view class='info'>
+    <view>
+        <text>订单号码</text>
+        <text class='info_right'>{{orderid}}</text>
+        <text class='copy_btn' bindtap="bindViewTap">复制</text>
+    </view>
+    <view>
+        <text>订单时间</text>
+        <text class='info_right'>{{order.ordertime}}</text>
+    </view>
+    <view>
+        <text>支付方式</text>
+        <text class='info_right'>在线支付</text>
+    </view>
+    <view>
+        <text>收货名字</text>
+        <text class='info_right'>{{order.MO_receiveName}}</text>
+    </view>
+    <view>
+        <text>手机号码</text>
+        <text class='info_right'>{{order.MO_receivePhone}}</text>
+    </view>
+    <view>
+        <text>期望时间</text>
+        <text class='info_right'>立即配送</text>
+    </view>
+    <view>
+        <text>揽货时间</text>
+        <text wx:if="{{data.scantime}}" class='info_right'>{{order.scantime}}</text>
+        <text wx:else class='info_right'>商家正在备餐中</text>
+    </view>
+    <view>
+        <text>配送地址</text>
+        <text class='info_right'>{{order.MO_receiveAddress}}</text>
+    </view>
+    <view>
+        <text>配送服务</text>
+        <text class='info_right'>由 商家 提供配送服务</text>
+    </view>
+    <view wx:if="{{data.state!=2}}" bindtap="bindViewTap1">
+        <text>联系商家</text>
+        <text wx:if="{{order.shopphone}}" class='info_right'>{{order.shopphone}}</text>
+    </view>
+    <view>
+        <text>订单备注</text>
+        <text wx:if="{{data.text}}" class='info_right'>{{order.MO_text}}</text>
+        <text wx:else class='info_right'>无</text>
+    </view>
+    <view  wx:if="{{data.state==7}}">
+        <text>拒绝原因</text>
+        <text class='info_right'>{{data.order_refusecause}}</text>
+    </view>
+</view>
+<view wx:if="{{order.state==8}}" class='onpay' bindtap="onpay" >去支付</view>
+<block wx:if="{{order.state==9}}">
+    <view class='btns'>
+        <view class='phone_btn' bindtap="bindViewTap1">联系商家</view>
+        <view class='reminder' bindtap="onreminder">发起催单</view>
+        <view class='refund_btn' bindtap="onrefund">申请退款</view>
+    </view>
+    <view class='evaluate' style='background-color: #549688;' bindtap="onfinish">完成</view>
+</block>
+<view wx:if="{{order.state==7}}" class='evaluate' bindtap="onevaluate">点评一下</view>
+<view wx:if="{{order.state==0}}" class='finish'>订单正在处理</view>
+<view wx:if="{{order.state==6}}" class='finish1'>已评价</view>
+<view wx:if="{{order.state==1 || order.state == 2}}" class='finish2'>已退款</view>
+<view wx:if="{{order.state==3}}" class='finish3'>已拒绝</view>
+
+<view class="ad"><ad unit-id="adunit-887593c2c1328a71"></ad></view>

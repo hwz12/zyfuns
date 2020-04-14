@@ -1,0 +1,75 @@
+page {
+  background-color: #fff;
+}
+
+.header_bg {
+  height: 305rpx;
+  background-image: linear-gradient(to top, #5ac390, #579b8d);
+  margin-bottom: 120rpx;
+}
+
+.header {
+  height: 275rpx;
+  width: 90%;
+  box-shadow: 1px 1px 10px #5e5e5e;
+  background-color: rgba(121, 121, 121, 0.8);
+  border-radius: 25rpx;
+  position: fixed;
+  top: 145rpx;
+  left: 5%;
+}
+
+.background_image {
+  height: 275rpx;
+  Opacity: 0.8;
+  filter: blur(30px);
+}
+
+.user_info {
+  position: relative;
+  bottom: 275rpx;
+  line-height: 275rpx;
+}
+
+.user_img {
+  overflow: hidden;
+  height: 165rpx;
+  width: 165rpx;
+  border-radius: 50%;
+  margin: 55rpx 30rpx;
+  float: left;
+  background-color: #f2f2f2;
+}
+
+.user_name {
+  color: #fff;
+  font-size: 30rpx;
+  font-family: Arial;
+}
+
+.menu {
+  height: 100rpx;
+  line-height: 105rpx;
+  text-align: left;
+  font-size: 28rpx;
+  font-family: Arial;
+  padding: 0;
+}
+
+.menu-hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu_icon {
+  height: 36rpx;
+  width: 36rpx;
+  margin: 32rpx 25rpx 32rpx 5%;
+  float: left;
+}
+
+.arc {
+  height: 40rpx;
+  width: 16rpx;
+  margin: 30rpx 25rpx;
+  float: right;
+}

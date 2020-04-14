@@ -1,0 +1,30 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>用户授权</text>
+        </view>
+    </view>
+</view>
+<image class='logo' src='/images/logo.png'></image>
+<view class='text'>状元范</view>
+<view class='text' style="font-size:32rpx;">欢迎登录华立学院校园生活平台</view>
+<view class='text1'>
+  <button open-type="getUserInfo" class='but' lang="zh_CN" bindtap='refuse'>拒绝</button>
+  <button wx:if="{{canIUse}}" style="background-color:{{com == 1?'#A4E2C6':'#fff' }}" open-type="getUserInfo" class='but' lang="zh_CN" bindgetuserinfo="onGotUserInfo">注册</button>
+</view>
+<view class='on'>
+  <image class='com' src='/images/coms.png' bindtap='com' wx:if="{{com == 0}}"></image>
+  <image class='com' src='/images/com.png' bindtap='com' wx:if="{{com == 1}}" ></image>
+  我已知晓并同意<text bindtap='show'>《状元范用户协议书》</text>
+</view>
+<view class="modal-box" hidden="{{flag}}" bindtap="hide">
+      <view class="modal-content">
+      <view style="font-size:40rpx;text-align:center;padding:10rpx;">状元范平台用户服务协议</view>
+        <view style="padding:10rpx">{{Article}}</view>
+      </view>
+      <view>
+       <!-- <button class="knowBtn" bindtap="hide">我知道了</button> -->
+      </view>
+ </view>
+ <view style="text-align:center"><view hidden="{{flag}}" style="text-align:center"><image src='/images/shop_details/fork.png' class="flagimage" bindtap="hide"></image></view></view>

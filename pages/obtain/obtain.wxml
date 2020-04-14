@@ -1,0 +1,6 @@
+<view class="header-container" bindtap='next'>
+  <image src='https://apps.zyfuns.com/zyfuns/1.jpg' class='bg'></image>
+    <view class="userContent">
+      <text class='button_next' bindtap='next'>我要注册</text>
+    </view>
+</view>

@@ -1,0 +1,104 @@
+
+/* .touch_background{
+  position: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+} */
+page{
+
+height:100%
+
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: rgb(17, 17, 17);
+  align-items: center;
+  position: relative;
+}
+
+.bg{
+  width: 100%;
+  height: 100%;
+}
+
+/* 名称和头像 */
+.userContent{
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.icon{
+  position: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+  align-self: center;
+  width: rpx;
+  height: 45.25rpx;
+}
+
+.name{
+  width: 197.29rpx;
+  height: 39.82rpx;
+  font-size: 32.58rpx;
+  position: absolute;
+  color: rgb(25, 200, 223);
+  left: 68.78rpx;
+  top: 590.05rpx;
+  text-align: right;
+}
+
+.input1{
+  position: absolute;
+  top: 586.05rpx;
+  left: 266.07rpx;
+  display: flex;
+  width: 427.16rpx;
+  height: 48.87rpx;
+  font-size: 30rpx;
+  color:#ffffff;
+  border-bottom: 1rpx solid #797979;
+}
+
+.phone{
+  width: 197.29rpx;
+  height: 39.82rpx;
+  font-size: 32.58rpx;
+  position: absolute;
+  color: rgb(25, 200, 223);
+  left: 68.78rpx;
+  top: 666.09rpx;
+  text-align: right;
+}
+
+.input2{
+  position: absolute;
+  top: 662.09rpx;
+  left: 266.07rpx;
+  display: flex;
+  width: 427.16rpx;
+  height: 48.87rpx;
+  font-size: 30rpx;
+  color:#ffffff;
+  border-bottom: 1rpx solid #797979;
+}
+
+.button_next{
+  position: absolute;
+  bottom: 10rpx;
+  left: 265rpx;
+  width: 217.2rpx;
+  height: 68.6rpx;
+  line-height: 68.6rpx;
+  color: white;
+  text-align:center;
+  border-radius: 15rpx; 
+}

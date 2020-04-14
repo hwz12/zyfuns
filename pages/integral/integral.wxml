@@ -1,0 +1,29 @@
+<!--pages/integral/integral.wxml-->
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>积分商城</text>
+        </view>
+    </view>
+</view>
+
+<view class="head" style="margin-top:{{navH}}px">
+  <view style="flex:3"></view>
+  <view class="headmenu">
+    <image src="/images/gold.png"></image>
+    <text>{{data.num}}</text>
+  </view>
+  <view class="headmoney" bindtap='integraldetaile' data-end="{{data.end}}"><text >收支明细</text></view>
+</view>
+
+<view class="menus">
+  <view wx:for="{{list}}" wx:key="item" class="menu">
+    <view style="flex:3">
+      <image src="/images/coupon.png"></image>
+    </view>
+    <view class="menuname" style="flex:7">{{item.name}}</view>
+    <view style="flex:3" class="menuprice" bindtap='buy' data-id="{{item.id}}"><view class="menuprices"><image src="/images/gold.png"></image><view style="flex:0">{{item.price}}</view></view></view>
+  </view>
+</view>
+

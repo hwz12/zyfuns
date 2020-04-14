@@ -1,0 +1,47 @@
+<template name="goodsname">
+    <view class='shop_name'>
+        <view class='goods' data-shopid='{{shopid}}' catchtap="gotoshop">{{goodsname}}</view>
+    </view>
+</template>
+<template name="order1">
+    <view class='order_btn'>
+        <view class='btn1' data-orderid='{{orderid}}' catchtap="oncancel">取消订单</view>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onpay">去支付</view>
+    </view>
+</template>
+<template name="order2">
+    <view class='order_btn'>
+        <view class='btn1' data-orderid='{{orderid}}' catchtap="onreminder">催单</view>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onfinish">完成</view>
+    </view>
+</template>
+<template name="order3">
+    <view class='order_btn'>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onorder">再来一单</view>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onevaluate">评价</view>
+    </view>
+</template>
+<template name="order4">
+    <view class='order_btn'>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onorder">再来一单</view>
+        <view class='btn3'>订单正在处理</view>
+    </view>
+</template>
+<template name="order5">
+    <view class='order_btn'>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onorder">再来一单</view>
+        <view class='btn4'>已评价</view>
+    </view>
+</template>
+<template name="order6">
+    <view class='order_btn'>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onorder">再来一单</view>
+        <view class='btn5'>已退款</view>
+    </view>
+</template>
+<template name="order7">
+    <view class='order_btn'>
+        <view class='btn2' data-orderid='{{orderid}}' catchtap="onorder">再来一单</view>
+        <view class='btn6'>已拒绝</view>
+    </view>
+</template>

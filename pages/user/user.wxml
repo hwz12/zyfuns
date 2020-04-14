@@ -1,0 +1,4 @@
+<image class='logo' src='/images/logo.png'></image>
+<view class='text'>欢迎使用状元范</view>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" class='but' lang="zh_CN" bindgetuserinfo="onGotUserInfo">开始使用</button>
+<view class='on'><image class='com' src='/images/com.png'></image>我已知晓并同意《状元范用户协议书》</view>

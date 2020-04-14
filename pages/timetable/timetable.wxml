@@ -1,0 +1,217 @@
+<view class='heard'>
+    <view class='nav bg-gray' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <view class='right-arrow' bindtap="goback"></view>
+            <text>课表查询</text>
+        </view>
+    </view>
+</view>
+<view class='header' style='margin-top:{{navH}}px'>
+    <view style='flex:1;'></view>
+    <view style='flex:5;'>
+        <text class='week'>第{{week}}周</text>
+        <text class='semester'>大二 第二学期</text>
+    </view>
+    <view style='flex:1;text-align: center;line-height: 90rpx;'>
+        <view class='cross'>
+            <view style='box-shadow:-1px -1px 0px #549688 inset;'></view>
+            <view></view>
+            <view></view>
+            <view style='box-shadow:-1px -1px 0px #549688;'></view>
+        </view>
+    </view>
+</view>
+<view class='date'>
+    <view style='flex:1;'>
+        <text class='date_up'>{{month}}</text>
+        <text class='date_down'>月</text>
+    </view>
+    <view class="tweek {{tweek==1 ? 'on' : ''}}">
+        <text class='date_up'>周一</text>
+        <text class='date_down'>{{day1}}日</text>
+    </view>
+    <view class="tweek {{tweek==2 ? 'on' : ''}}">
+        <text class='date_up'>周二</text>
+        <text class='date_down'>{{day2}}日</text>
+    </view>
+    <view class="tweek {{tweek==3 ? 'on' : ''}}">
+        <text class='date_up'>周三</text>
+        <text class='date_down'>{{day3}}日</text>
+    </view>
+    <view class="tweek {{tweek==4 ? 'on' : ''}}">
+        <text class='date_up'>周四</text>
+        <text class='date_down'>{{day4}}日</text>
+    </view>
+    <view class="tweek {{tweek==5 ? 'on' : ''}}">
+        <text class='date_up'>周五</text>
+        <text class='date_down'>{{day5}}日</text>
+    </view>
+    <view class="tweek {{tweek==6 ? 'on' : ''}}">
+        <text class='date_up'>周六</text>
+        <text class='date_down'>{{day6}}日</text>
+    </view>
+    <view class="tweek {{tweek==0 ? 'on' : ''}}">
+        <text class='date_up'>周日</text>
+        <text class='date_down'>{{day7}}日</text>
+    </view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>1</text>
+    <view></view>
+    <view>
+        <view class='info' style='background-color: #C6FFC6;'>
+            <text>中小型Web项目开发</text>
+            <text>1-15(1,2)</text>
+            <text>科-404</text>
+        </view>
+    </view>
+    <view></view>
+    <view>
+        <view class='info' style='background-color: #CCCCFF;'>
+            <text>Linux操作系统</text>
+            <text>1-15(1,2)</text>
+            <text>综-610</text>
+        </view>
+    </view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>2</text>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>3</text>
+    <view>
+        <view class='info' style='background-color: #FFB7B7;'>
+            <text>就业与创业教育</text>
+            <text>1-15(3,4)</text>
+            <text>图-404</text>
+        </view>
+    </view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view>
+        <view class='info' style='background-color: #FFC184;'>
+            <text>多媒体软件制作</text>
+            <text>1-15(3,4)</text>
+            <text>西3-302</text>
+        </view>
+    </view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>4</text>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>5</text>
+    <view>
+        <view class='info' style='background-color: #C4FFFF;'>
+            <text>网站建设</text>
+            <text>1-15(5,6)</text>
+            <text>西3-208</text>
+        </view>
+    </view>
+    <view></view>
+    <view>
+        <view class='info' style='background-color: #8AC5FF;'>
+            <text>JAVA程序设计</text>
+            <text>1-15(5,6)</text>
+            <text>综-608</text>
+        </view>
+    </view>
+    <view>
+        <view class='info' style='background-color: #FFC184;'>
+            <text>多媒体软件制作</text>
+            <text>1-15(5,6)</text>
+            <text>综-608</text>
+        </view>
+    </view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>6</text>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>7</text>
+    <view>
+        <view class='info' style='background-color: #C4FFFF;'>
+            <text>网站建设</text>
+            <text>1-15(7,8)</text>
+            <text>综-608</text>
+        </view>
+    </view>
+    <view>
+        <view class='info' style='background-color: #8AC5FF;'>
+            <text>JAVA程序设计</text>
+            <text>1-15(7,8)</text>
+            <text>西3-301</text>
+        </view>
+    </view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>8</text>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>9</text>
+    <view></view>
+    <view></view>
+    <view>
+        <view class='info' style='background-color: #FFFFCC;'>
+            <text>计算机网络管理（高级）</text>
+            <text>1-15(9,8)</text>
+            <text>综-302</text>
+        </view>
+    </view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>
+<view class='timetable'>
+    <text style='flex:1;background-color: #E7F8EF;line-height: 130rpx;'>10</text>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+</view>

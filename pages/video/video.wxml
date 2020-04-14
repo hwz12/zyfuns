@@ -1,0 +1,9 @@
+<view class="section tc">
+    <video id="myVideo" src="http://dl.zyfuns.com/%E7%8A%B6%E5%85%83%E8%8C%83%E5%BD%A2%E8%B1%A1%E7%89%87.mp4" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+    <!-- 
+    <view class="btn-area">
+        <input bindblur="bindInputBlur"/>
+        <button bindtap="bindSendDanmu">发送弹幕</button>
+    </view>
+    -->
+</view>

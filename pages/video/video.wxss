@@ -1,0 +1,4 @@
+#myVideo{
+    height: 450rpx;
+    width: 100%;
+}

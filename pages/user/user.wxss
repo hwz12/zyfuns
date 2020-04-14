@@ -1,0 +1,34 @@
+
+.logo{
+  width:165rpx;
+  height:165rpx;
+  margin-left:38.5%;
+  margin-top:38%;
+}
+.text{
+  /* margin-left: 34.5%; */
+  text-align: center;
+  font-size:40rpx;
+  color:black;
+  margin-top: 3.5%;
+}
+.but{
+  margin-top:10%;
+  width:42%;
+  height:65rpx;
+  line-height: 65rpx;
+  background-color: #A4E2C6;
+  color:rgb(0, 0, 0);
+}
+.on{
+  font-size:25rpx;
+  width:64%;
+  margin-top:3%;
+  margin-left:25%;
+}
+.com{
+  width:25rpx;
+  height:25rpx;
+  margin-right:2%;
+  margin-top:10rpx;
+}
